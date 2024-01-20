@@ -16,7 +16,7 @@ const Container:React.FC<ProjectProp> = ({project,techStack}) => {
         </div>
         <div className="mt-4 mb-1 flex items-center gap-1 flex-wrap ">
          {techStack.map((tech,id)=>(
-            <Badge key={id} variant={"outline"} className="max-md:text-xs text-sm cursor-pointer hover:bg-zinc-100/5 hover:border-blue-300  transition-all duration-300 font-normal rounded-none shadow-none">{tech}</Badge>
+            <Badge key={id} variant={"outline"} className="max-md:text-xs text-sm cursor-pointer hover:bg-zinc-100/5 hover:border-blue-300  hover:font-semibold transition-all duration-300 font-normal rounded-none shadow-none">{tech}</Badge>
          ))}
         </div>
         <div className="pt-4">
