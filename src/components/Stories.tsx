@@ -46,9 +46,9 @@ export const Stories:React.FC<VideoLink>=({link,username,fullName})=> {
       </DialogTrigger>
       <DialogContent className="max-md:h-full backdrop-blur-md border-none">
         <DialogHeader>
-          <DialogTitle className="text-xs">{fullName}</DialogTitle>
+          <DialogTitle className="text-sm">{fullName}</DialogTitle>
         </DialogHeader>
-     <div className="flex justify-center items-center h-[33svw] ">
+     <div className="flex justify-center items-center ">
         
             <video autoPlay  playsInline
             src={videoSrc || ""}
@@ -56,7 +56,7 @@ export const Stories:React.FC<VideoLink>=({link,username,fullName})=> {
             onPlay={handPlay}
             onEnded={()=>setReplay(true)}
             onLoadedData={()=>setVideoLoaded(false)}
-            className=" rounded-xl relative object-cover   max-h-[33svw] "
+            className=" rounded-xl relative object-cover shadow-sm  h-[71svh] "
             />
             {!videLoaded &&(
  <div className=" absolute">

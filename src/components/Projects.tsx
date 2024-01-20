@@ -11,14 +11,14 @@ const Projects: React.FC<ProjectProps> = ({ link, title, desc, tech }) => {
         target="_blank"
       >
         <div>
-          <span className="font-medium underline underline-offset-4 ">
+          <span className="font-medium underline underline-offset-4 transition-all duration-300 hover:text-red-300">
             {title}
           </span>
         </div>
-        <span className="text-muted-foreground max-md:text-sm">{desc}</span>
+        <span className="text-muted-foreground  max-md:text-sm">{desc}</span>
         <span className="text-muted-foreground">
           {tech?.map((lang, id) =>
-            lang ? <CustomBadge key={id + lang} techStack={lang} /> : null
+            lang ? <CustomBadge  key={id + lang} techStack={lang} /> : null
           )}
         </span>
       </a>

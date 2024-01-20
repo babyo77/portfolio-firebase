@@ -9,11 +9,11 @@ function App() {
 
   return (
     <ReactLenis root>
-      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <ThemeProvider defaultTheme="system"  storageKey="vite-ui-theme">
         {Details ? (
           Details && (
             <>
-              <main className="container py-8">
+              <main className="container py-8  ">
                 <Header
                   name={Details?.name}
                   username={Details?.username}
