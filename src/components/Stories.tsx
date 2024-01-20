@@ -10,7 +10,7 @@ import {
 import { Loader } from "."
 import {useEffect,useRef,useState } from "react"
 import { StoriesSrc } from "@/interface"
-import { MdOutlineReplay } from "react-icons/md";
+import { FaInstagram } from "react-icons/fa6";
 interface VideoLink{
     link:string
     username:string,
@@ -20,7 +20,7 @@ interface VideoLink{
 export const Stories:React.FC<VideoLink>=({link,username,fullName})=> {
     const [videLoaded,setVideoLoaded] = useState<boolean>(false)
  const [videoSrc,setVideoSrc] = useState<string | null>(null)
- const [replay,setReplay] = useState<boolean>(false)
+
  const handPlay=()=>{
     setVideoLoaded(true)
  }
@@ -42,21 +42,25 @@ export const Stories:React.FC<VideoLink>=({link,username,fullName})=> {
   return (
     <Dialog>
       <DialogTrigger asChild >
+        <div className="flex flex-col">
+
+      <span className=" font-semibold text-lg capitalize transition-all duration-300 hover:text-blue-300 text-left">{fullName}</span>
       <span className="text-xs animate-pulse ">details here ▲</span>
+        </div>
+        
       </DialogTrigger>
       <DialogContent className="max-md:h-full backdrop-blur-md border-none">
         <DialogHeader>
-          <DialogTitle className="text-sm">{fullName}</DialogTitle>
+          <DialogTitle className="text-sm">Deployed on ▲</DialogTitle>
         </DialogHeader>
      <div className="flex justify-center items-center ">
         
-            <video autoPlay  playsInline
+            <video autoPlay loop  playsInline
             src={videoSrc || ""}
             ref={storyRef}
             onPlay={handPlay}
-            onEnded={()=>setReplay(true)}
             onLoadedData={()=>setVideoLoaded(false)}
-            className=" rounded-xl relative object-cover shadow-sm  h-[71svh] "
+            className=" rounded-xl relative object-cover shadow-sm  h-[77svh] "
             />
             {!videLoaded &&(
  <div className=" absolute">
@@ -71,13 +75,13 @@ export const Stories:React.FC<VideoLink>=({link,username,fullName})=> {
         <DialogFooter>
             <div className="flex justify-between">
 
-          <p className="text-xs">
-            instagram 
-            <a href="" target="_blank" className="px-1 underline underline-offset-2 ">{username}</a>
+          <p className="text-xs hover:text-red-500 ">
+            View on  
+            <a href={link} target="_blank" id={username} className="px-1 underline underline-offset-2 ">instagram.</a>
           </p>
-          {replay &&(
-  <MdOutlineReplay className="h-4 w-4 cursor-pointer" onClick={()=>storyRef.current?.play()} />
-          )}
+        
+  <FaInstagram className="h-4 w-4 cursor-pointer" onClick={()=>window.open(link)} />
+          
         
             </div>
         </DialogFooter>

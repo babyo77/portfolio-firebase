@@ -16,7 +16,7 @@ const Container:React.FC<ProjectProp> = ({project,techStack}) => {
         </div>
         <div className="mt-4 mb-1 flex items-center gap-1 flex-wrap ">
          {techStack.map((tech,id)=>(
-            <Badge key={id} variant={"outline"} className="max-md:text-xs text-sm cursor-pointer hover:bg-zinc-100/5 hover:border-red-300 transition-all duration-300 font-normal rounded-none shadow-none">{tech}</Badge>
+            <Badge key={id} variant={"outline"} className="max-md:text-xs text-sm cursor-pointer hover:bg-zinc-100/5 hover:border-blue-300  transition-all duration-300 font-normal rounded-none shadow-none">{tech}</Badge>
          ))}
         </div>
         <div className="pt-4">
@@ -26,7 +26,7 @@ const Container:React.FC<ProjectProp> = ({project,techStack}) => {
 {!project? ( <div className="space-y-3 py-3 min-h-96 flex flex-col justify-center items-center">
         <Loader/> 
         </div>) : (
-  <ul className="space-y-3 py-3  flex flex-col justify-center items-center">
+  <ul className="space-y-3 py-3  flex flex-col ">
   {project.map((data,id)=>(
      <Projects key={id} title={data.title} tech={data.tech} link={data.link} desc={data.desc}  />
   ))}

@@ -5,7 +5,7 @@ interface TeachStackProp{
 }
 const CustomBadge:React.FC<TeachStackProp> = ({techStack})=>{
     return(
-        <Badge variant={"outline"} className="font-normal hover:border-red-300 transition-all duration-100 rounded-none shadow-none mr-1">{techStack}</Badge>
+        <Badge variant={"outline"} className="font-normal group-hover:border-blue-300 transition-all duration-300 rounded-none shadow-none mr-1">{techStack}</Badge>
     )
 }
 

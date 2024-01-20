@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({name,story,username}) => {
     <header className=" flex justify-between py-3 z-10  items-center container w-full backdrop-blur-md">
       <div className="cursor-pointer flex flex-col" onClick={navigateToHome}>
       
-        <span className=" font-semibold text-lg capitalize text-left">{name}</span>
+      
         <Stories link={story} fullName={name} username={username} />
       </div>
       <div className="flex items-center justify-center">
