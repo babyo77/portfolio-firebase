@@ -12,7 +12,7 @@ const Container:React.FC<ProjectProp> = ({project,techStack}) => {
     <div className=" container flex flex-col  space-y-2 ">
       <article>
       <div className="pt-4">
-          <h2 className="font-mono text-lg tracking-tighter">Tech-Stack</h2>
+          <h2 className="font-mono text-lg tracking-tighter font-semibold">Tech-Stack</h2>
         </div>
         <div className="mt-4 mb-1 flex items-center gap-1 flex-wrap ">
          {techStack.map((tech,id)=>(
@@ -20,7 +20,7 @@ const Container:React.FC<ProjectProp> = ({project,techStack}) => {
          ))}
         </div>
         <div className="pt-4">
-          <h2 className="font-mono text-lg tracking-tighter">Projects</h2>
+          <h2 className="font-mono text-lg tracking-tighter font-semibold">Projects</h2>
         </div>
       
 {!project? ( <div className="space-y-3 py-3 min-h-96 flex flex-col justify-center items-center">

@@ -15,7 +15,7 @@ const Projects: React.FC<ProjectProps> = ({ link, title, desc, tech }) => {
             {title}
           </span>
         </div>
-        <span className="text-muted-foreground max-md:text-sm">{desc}</span>
+        <span className="text-muted-foreground max-md:text-xs ">{desc}</span>
         <span className="text-muted-foreground ">
           {tech?.map((lang, id) =>
             lang ? <CustomBadge  key={id + lang} techStack={lang} /> : null
