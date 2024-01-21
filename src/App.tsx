@@ -20,6 +20,8 @@ function App() {
                   name={Details?.name}
                   username={Details?.username}
                   story={Details?.story}
+                  github={Details.github}
+                  twitter={Details.twitter}
                 />
                 <Container
                   techStack={Details?.techStack}

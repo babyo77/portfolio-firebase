@@ -12,9 +12,11 @@ interface User{
     name:string,
     bio:string,
     story:string,
-    date:Date
-    techStack:string[]
-    projects:ProjectProps[]
+    date:Date,
+    techStack:string[],
+    projects:ProjectProps[],
+    github:string,
+    twitter:string,
 }
 interface ProjectProps {
     link: string;
