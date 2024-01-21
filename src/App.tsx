@@ -5,7 +5,7 @@ import { Loader2 } from "./components/Loader";
 
 
 function App() {
-  const {Details,error} = useDetails("http://localhost:3000/");
+  const {Details,error} = useDetails("https://details-alpha.vercel.app/");
 
   return (
     <ReactLenis root>
