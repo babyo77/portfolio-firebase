@@ -51,7 +51,7 @@ export const Stories:React.FC<VideoLink>=({link,username,fullName})=> {
       </DialogTrigger>
       <DialogContent className="max-md:h-full backdrop-blur-md border-none">
         <DialogHeader>
-          <DialogTitle className="text-sm">Deployed on ▲</DialogTitle>
+          <DialogTitle className="text-sm">Backend firebase - deployed on ▲ </DialogTitle>
         </DialogHeader>
      <div className="flex justify-center items-center ">
         
