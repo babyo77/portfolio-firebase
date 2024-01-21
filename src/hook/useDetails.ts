@@ -5,15 +5,18 @@ import { useEffect, useState } from "react"
 
 const useDetails = (url:string) =>{
     const [Details,setDetails] = useState<User | null>(null)
+    const [error,setError] = useState<string | null>(null)
 useEffect(()=>{
-    const FetchData=async()=>{
-        const response = await axios.get(url)
-        const responseData:User = response.data
-        setDetails(responseData)
+    const FetchData=async()=>{ 
+            setError(null)
+            const response = await axios.get(url)
+            const responseData:User = response.data
+            setDetails(responseData)
     }
-    FetchData()
+    FetchData().catch((error)=>(setError(error.response.data)))
+
 },[url])
-     return Details
+     return {Details,error}
    
 }
 export default useDetails

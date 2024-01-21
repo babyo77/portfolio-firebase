@@ -5,7 +5,7 @@ import { Loader2 } from "./components/Loader";
 
 
 function App() {
-  const Details = useDetails("https://details-alpha.vercel.app/");
+  const {Details,error} = useDetails("http://localhost:3000/");
 
   return (
     <ReactLenis root>
@@ -31,8 +31,8 @@ function App() {
         ) : (
           <div className="flex border h-screen justify-center item-center">
             <div className=" flex-col flex gap-1 justify-center items-center">
-            <Loader2 />
-           <span className="text-xs">connecting...</span>
+            <Loader2 />        
+           <span className="text-xs">{error? error:"connecting..."}</span>
             </div>
           </div>
         )}
