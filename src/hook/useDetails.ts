@@ -1,19 +1,17 @@
 import { User } from "@/interface";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import {useQuery} from "react-query"
 
 const useDetails = (url: string) => {
-  const [Details, setDetails] = useState<User | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  useEffect(() => {
-    const FetchData = async () => {
-      setError(null);
-      const response = await axios.get(url);
-      const responseData: User = response.data;
-      setDetails(responseData);
-    };
-    FetchData().catch((error) => setError(error.response.data));
-  }, [url]);
+ 
+  const FetchData = async () => {
+    const response = await axios.get(url);
+    return response.data;
+  };
+
+  const {data:Details,error} = useQuery<User,{message:string}>('userDetails',FetchData,{
+    refetchOnWindowFocus: false
+  })
   return { Details, error };
 };
 
