@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-
+import {friendsListtemp} from "../../public/assets/tempt"
 import { Input } from "@/components/ui/input";
 import {
   Dialog,
@@ -64,7 +64,7 @@ export function Contact({ friend }: { friend: boolean }) {
               <DialogHeader>
                 <DialogTitle>Friends.</DialogTitle>
               </DialogHeader>
-              <Friend />
+              <Friend friendsList={friendsListtemp} />
             </DialogContent>
           </Dialog>
         ) : (
@@ -100,7 +100,7 @@ export function Contact({ friend }: { friend: boolean }) {
             <DrawerHeader className="text-left">
               <DrawerTitle>Friends.</DrawerTitle>
             </DrawerHeader>
-            <Friend className="px-4" />
+            <Friend className="px-4" friendsList={friendsListtemp} />
             <DrawerFooter className="pt-2"></DrawerFooter>
           </DrawerContent>
         </Drawer>
@@ -221,7 +221,7 @@ function Friend({
       <div className="grid gap-2">
         {friendsList ? (
           friendsList.map((friendsList) => (
-            <div className="w-full cursor-pointer">
+            <div key={friendsList.username} className="w-full cursor-pointer">
               <a
                 href={friendsList.url}
                 target="_blank"
