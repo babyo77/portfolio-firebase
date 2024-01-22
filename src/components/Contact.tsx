@@ -71,8 +71,7 @@ export function Contact({ friend }: { friend: boolean }) {
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
               <p className="text-xs cursor-pointer">
-                let's build{" "}
-                <span className="underline underline-offset-4">something</span>
+                <span className="underline underline-offset-4">let's build something</span>
               </p>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
@@ -108,8 +107,7 @@ export function Contact({ friend }: { friend: boolean }) {
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
             <p className="text-xs cursor-pointer">
-              let's build{" "}
-              <span className="underline underline-offset-4">something</span>
+              <span className="underline underline-offset-4">let's build something</span>
             </p>
           </DialogTrigger>
           <DialogContent className="rounded-lg w-[90svw]">
