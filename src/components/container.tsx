@@ -21,7 +21,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack }) => {
             <Badge
               key={id}
               variant={"outline"}
-              className="max-md:text-xs text-sm cursor-pointer hover:bg-zinc-100/5 hover:border-blue-300  transition-all duration-300 font-normal rounded-none shadow-none"
+              className="max-md:text-xs text-xs cursor-pointer hover:bg-zinc-100/5 hover:border-blue-300  transition-all duration-300 font-normal rounded-none shadow-none"
             >
               {tech}
             </Badge>
