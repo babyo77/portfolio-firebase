@@ -33,7 +33,9 @@ function App() {
           <div className="flex justify-center item-center">
             <div className=" flex-col h-svh flex gap-1 justify-center items-center">
               <Loader2 />
-              <span className="text-xs">{error ? error.message : "connecting..."}</span>
+              <span className="text-xs">
+                {error ? error.message : "connecting..."}
+              </span>
             </div>
           </div>
         )}

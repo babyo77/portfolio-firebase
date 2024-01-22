@@ -2,7 +2,7 @@ import axios from "axios"
 import { useMutation } from "react-query"
 
 const handleSubmit = async (data:string) =>{
- const response = await  axios.post("http://172.20.10.2:3000/submit",data,{
+ const response = await  axios.post("https://details-alpha.vercel.app/submit",data,{
     headers:{
         'Content-Type':'application/json'
     }
