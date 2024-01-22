@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import {friendsListtemp} from "../../public/assets/tempt"
+import { friendsListtemp } from "../../public/assets/tempt";
 import { Input } from "@/components/ui/input";
 import {
   Dialog,
@@ -158,7 +158,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
               <FormControl>
                 <Input placeholder="naruto" {...field} />
               </FormControl>
-              <FormMessage className="text-xs" />
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -171,7 +171,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
                 <Input placeholder="naruto@gmail.com" {...field} />
               </FormControl>
 
-              <FormMessage className="text-xs" />
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -187,7 +187,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
                   {...field}
                 />
               </FormControl>
-              <FormMessage className="text-xs" />
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -218,7 +218,7 @@ function Friend({
 }) {
   return (
     <div className={className}>
-      <div className="grid gap-3">
+      <div className="grid gap-3 text-sm">
         {friendsList ? (
           friendsList.map((friendsList) => (
             <div key={friendsList.username} className="w-full cursor-pointer">
