@@ -218,7 +218,7 @@ function Friend({
 }) {
   return (
     <div className={className}>
-      <div className="grid gap-2">
+      <div className="grid gap-3">
         {friendsList ? (
           friendsList.map((friendsList) => (
             <div key={friendsList.username} className="w-full cursor-pointer">
