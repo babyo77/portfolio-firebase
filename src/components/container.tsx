@@ -1,5 +1,5 @@
 import { ProjectProps } from "@/interface";
-import { Loader, Projects } from ".";
+import { Footer, Loader, Projects } from ".";
 import { Badge } from "./ui/badge";
 
 interface ProjectProp {
@@ -51,6 +51,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack }) => {
           </ul>
         )}
       </article>
+      <Footer />
     </div>
   );
 };
