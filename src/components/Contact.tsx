@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { friendsListtemp } from "../../public/assets/tempt";
 import { Input } from "@/components/ui/input";
 import {
   Dialog,
@@ -36,6 +35,8 @@ import { ButtonLoading, Loader } from "./Loader";
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
 import { FriendsInterface } from "@/interface";
 import { UseSubmitFromData } from "@/hook/FormSubmit";
+import { FetchDetails } from "@/hook/FetchDetails";
+import { useGetDetailsQuery } from "@/store/detailsApi";
 const FormSchema = z.object({
   name: z.string().min(3).max(30, {
     message: "Username must be between 4 and 30 characters.",
@@ -47,6 +48,11 @@ const FormSchema = z.object({
 });
 
 export function Contact({ friend }: { friend: boolean }) {
+  const { data } = useGetDetailsQuery();
+  const { FetchedData, error } = FetchDetails(
+    `https://details-alpha.vercel.app/details/${data?.friends.toString()}`
+  );
+
   const [open, setOpen] = React.useState(false);
   const isDesktop = window.innerWidth > 768;
 
@@ -64,14 +70,23 @@ export function Contact({ friend }: { friend: boolean }) {
               <DialogHeader>
                 <DialogTitle>Friends.</DialogTitle>
               </DialogHeader>
-              <Friend friendsList={friendsListtemp} />
+              {FetchedData ? (
+                <Friend friendsList={FetchedData} />
+              ) : (
+                <div className="w-full items-center flex flex-col gap-2 justify-center">
+                  <Loader />
+                  <span className="text-xs">{error?.message}</span>
+                </div>
+              )}
             </DialogContent>
           </Dialog>
         ) : (
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
               <p className="text-xs cursor-pointer">
-                <span className="underline underline-offset-4">let's build something</span>
+                <span className="underline underline-offset-4">
+                  let's build something
+                </span>
               </p>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
@@ -99,7 +114,15 @@ export function Contact({ friend }: { friend: boolean }) {
             <DrawerHeader className="text-left">
               <DrawerTitle>Friends.</DrawerTitle>
             </DrawerHeader>
-            <Friend className="px-4" friendsList={friendsListtemp} />
+            {FetchedData ? (
+              <Friend className="px-4" friendsList={FetchedData} />
+            ) : (
+              <div className="w-full flex items-center flex-col gap-2 justify-center">
+                <Loader />
+                <span className="text-xs">{error?.message}</span>
+              </div>
+            )}
+
             <DrawerFooter className="pt-2"></DrawerFooter>
           </DrawerContent>
         </Drawer>
@@ -107,7 +130,9 @@ export function Contact({ friend }: { friend: boolean }) {
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
             <p className="text-xs cursor-pointer">
-              <span className="underline underline-offset-4">let's build something</span>
+              <span className="underline underline-offset-4">
+                let's build something
+              </span>
             </p>
           </DialogTrigger>
           <DialogContent className="rounded-lg w-[90svw]">
@@ -212,42 +237,36 @@ function Friend({
   friendsList,
 }: {
   className?: string;
-  friendsList?: FriendsInterface[];
+  friendsList: FriendsInterface[];
 }) {
   return (
     <div className={className}>
       <div className="grid gap-3 text-sm">
-        {friendsList ? (
-          friendsList.map((friendsList) => (
-            <div key={friendsList.username} className="w-full cursor-pointer">
-              <a
-                href={friendsList.url}
-                target="_blank"
-                className="flex group transition-all duration-300 justify-between items-center"
-              >
-                <div className="flex gap-2  items-center">
-                  <Avatar>
-                    <AvatarImage src={friendsList.dp} />
-                    <AvatarFallback>FR</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <h3 className="transition-all duration-300 group-hover:text-red-500 ">
-                      {friendsList.username}
-                    </h3>
-                    <p className="text-[.7rem] text-zinc-500  -mt-1">
-                      {friendsList.fname}
-                    </p>
-                  </div>
+        {friendsList?.map((friendsList) => (
+          <div key={friendsList.username} className="w-full cursor-pointer">
+            <a
+              href={friendsList.url}
+              target="_blank"
+              className="flex group transition-all duration-300 justify-between items-center"
+            >
+              <div className="flex gap-2  items-center">
+                <Avatar>
+                  <AvatarImage src={friendsList.dp} />
+                  <AvatarFallback>FR</AvatarFallback>
+                </Avatar>
+                <div>
+                  <h3 className="transition-all duration-300 group-hover:text-red-500 ">
+                    {friendsList.username}
+                  </h3>
+                  <p className="text-[.7rem] text-zinc-500  -mt-1">
+                    {friendsList.fname}
+                  </p>
                 </div>
-                <InstagramLogoIcon className="h-5 w-5 transition-all duration-300 group-hover:text-red-500" />
-              </a>
-            </div>
-          ))
-        ) : (
-          <div className="w-full flex justify-center">
-            <Loader />
+              </div>
+              <InstagramLogoIcon className="h-5 w-5 transition-all duration-300 group-hover:text-red-500" />
+            </a>
           </div>
-        )}
+        ))}
       </div>
     </div>
   );
