@@ -10,7 +10,9 @@ const FetchDetails = (url: string) => {
 
   const { data: FetchedData, error } = useQuery<
     FriendsInterface[],
-    { message: string }
+    { response: {
+      data:string
+    } }
   >("userDetails", FetchData, {
     refetchOnWindowFocus: false,
   });

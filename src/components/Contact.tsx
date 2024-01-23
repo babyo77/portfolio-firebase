@@ -75,7 +75,7 @@ export function Contact({ friend }: { friend: boolean }) {
               ) : (
                 <div className="w-full items-center flex flex-col gap-2 justify-center">
                   <Loader />
-                  <span className="text-xs">{error?.message}</span>
+                  <span className="text-xs">{error?.response.data}</span>
                 </div>
               )}
             </DialogContent>
@@ -119,7 +119,7 @@ export function Contact({ friend }: { friend: boolean }) {
             ) : (
               <div className="w-full flex items-center flex-col gap-2 justify-center">
                 <Loader />
-                <span className="text-xs">{error?.message}</span>
+                <span className="text-xs">{error?.response.data}</span>
               </div>
             )}
 
