@@ -6,6 +6,7 @@ import { useGetDetailsQuery } from "./store/detailsApi";
 function App() {
 
 const { data:Details,error} =useGetDetailsQuery()
+console.log(error);
 
   return (
     <ReactLenis root>
@@ -35,7 +36,7 @@ const { data:Details,error} =useGetDetailsQuery()
             <div className=" flex-col h-svh flex gap-1 justify-center items-center">
               <Loader2 />
               <span className="text-[.7rem] lowercase">
-                {error ? (error as {status:string}).status : "connecting..."}
+                {error ? (error as {data:string}).data : "connecting..."}
               </span>
             </div>
           </div>
