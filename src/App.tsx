@@ -1,10 +1,11 @@
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { Container, Header, ThemeProvider } from "./components";
-import { useDetails } from "./hook/useDetails";
 import { Loader2 } from "./components/Loader";
+import { useGetDetailsQuery } from "./store/detailsApi";
 
 function App() {
-  const { Details, error } = useDetails("https://details-alpha.vercel.app/");
+
+const { data:Details,error } =useGetDetailsQuery()
 
   return (
     <ReactLenis root>
@@ -34,7 +35,7 @@ function App() {
             <div className=" flex-col h-svh flex gap-1 justify-center items-center">
               <Loader2 />
               <span className="text-xs">
-                {error ? error.message : "connecting..."}
+                {error ? (error as {message:string}).message : "connecting..."}
               </span>
             </div>
           </div>
