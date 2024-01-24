@@ -8,7 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Loader } from ".";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { StoriesSrc } from "@/interface";
 import { FaInstagram } from "react-icons/fa6";
 import { useQuery } from "react-query";
@@ -22,7 +22,6 @@ interface VideoLink {
 
 export const Stories: React.FC<VideoLink> = ({ link, username, fullName }) => {
   const [videLoaded, setVideoLoaded] = useState<boolean>(false);
-  const [videoSrc, setVideoSrc] = useState<string | undefined>(undefined);
   const [currentId,setCurrentId] = useState<number>(0)
 
   const handPlay = () => {
@@ -32,28 +31,29 @@ export const Stories: React.FC<VideoLink> = ({ link, username, fullName }) => {
   const NextStory = ()=>{
     if(currentId>=link.length-1)return
     setCurrentId((prev)=>prev+1)
-      FetchStory(link[currentId+1])
+    
   }
   const PrevStory = ()=>{
     if(currentId<=0)return setCurrentId(0)
-    setCurrentId((prev)=>prev-1)
-      FetchStory(link[currentId-1])
+    setCurrentId((prev)=>prev-1)  
   }
 
-  const storyRef = useRef<HTMLVideoElement>(null);
-  const FetchStory = async (link:string) => {
+
+  const FetchStory = async (link:string):Promise<StoriesSrc> => {
       setVideoLoaded(false)
-      const response = await axios.get(
+      const response = await axios.get<StoriesSrc[]>(
         `https://instx-api.vercel.app/api/v1/?link=${link}`
       );
-      const responseData: StoriesSrc[] = response.data;
-      setVideoSrc(responseData[0].download_link);
+      console.log(response.data);
+      
+     return response.data[0]
     };
 
-      useQuery("stories",()=>FetchStory(link[currentId]),{
-        refetchOnWindowFocus:false
+const {data} =  useQuery(["stories",currentId],()=>FetchStory(link[currentId]),{
+        refetchOnWindowFocus:false,
+        staleTime:Infinity,
       })
-console.log("re");
+
 
   return (
     <Dialog>
@@ -77,8 +77,7 @@ console.log("re");
             autoPlay
             loop
             playsInline
-            src={videoSrc || ""}
-            ref={storyRef}
+            src={data?.download_link}
             onPlay={handPlay}
             onLoadedData={() => setVideoLoaded(false)}
             className=" rounded-xl relative object-cover shadow-sm w-[18rem]   h-[77svh] "

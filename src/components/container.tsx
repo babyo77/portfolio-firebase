@@ -46,6 +46,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack }) => {
                 tech={data.tech}
                 link={data.link}
                 desc={data.desc}
+                users={data.users}
               />
             ))}
           </ul>

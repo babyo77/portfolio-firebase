@@ -2,7 +2,7 @@ import { ProjectProps } from "@/interface";
 import { CustomBadge } from ".";
 
 
-const Projects: React.FC<ProjectProps> = ({ link, title, desc, tech }) => {
+const Projects: React.FC<ProjectProps> = ({ link, title, desc, tech ,users}) => {
   return (
     <li>
       <a
@@ -13,7 +13,10 @@ const Projects: React.FC<ProjectProps> = ({ link, title, desc, tech }) => {
         <div>
           <span className="font-medium underline underline-offset-4 transition-all duration-300 group-hover:text-blue-300 ">
             {title}
-          </span>
+          </span> 
+          {users && (
+              <span className="ml-2 tracking-tighter no-underline rounded-lg px-2 py-0.5  font-mono text-[.7rem] bg-primary text-primary-foreground ">{users}+ Users</span>
+            )} 
         </div>
         <span className="text-muted-foreground max-md:text-xs text-sm">{desc}</span>
         <span className="text-muted-foreground ">

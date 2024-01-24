@@ -25,6 +25,7 @@ interface ProjectProps {
   title: string;
   desc: string;
   tech: string[];
+  users:string
 }
 interface FriendsInterface {
   fname: string;
