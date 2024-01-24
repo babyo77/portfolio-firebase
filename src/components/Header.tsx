@@ -7,7 +7,7 @@ import { Stories } from "./Stories";
 
 interface HeaderProps{
   name:string,
-  story:string,
+  story:string[],
   username:string,
   github:string,
  twitter:string

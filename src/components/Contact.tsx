@@ -135,7 +135,7 @@ export function Contact({ friend }: { friend: boolean }) {
               </span>
             </p>
           </DialogTrigger>
-          <DialogContent className="rounded-lg w-[90svw]">
+          <DialogContent className="rounded-lg w-[84svw]">
             <DialogHeader>
               <DialogTitle>Let's Build.</DialogTitle>
               <DialogDescription>Enter you details.</DialogDescription>
@@ -259,7 +259,7 @@ function Friend({
                     {friendsList.username}
                   </h3>
                   <p className="text-[.7rem] text-zinc-500  -mt-1">
-                    {friendsList.fname}
+                    {friendsList.fname || "instagram blocked tanmay scaping 😞"}
                   </p>
                 </div>
               </div>

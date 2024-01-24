@@ -11,7 +11,7 @@ interface User {
   username: string;
   name: string;
   bio: string;
-  story: string;
+  story: string[];
   date: Date;
   techStack: string[];
   projects: ProjectProps[];
