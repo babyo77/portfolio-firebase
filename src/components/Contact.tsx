@@ -37,8 +37,8 @@ import { useGetDetailsQuery } from "@/store/detailsApi";
 import { auth, googleAuthProvider } from "@/firebase/firebase";
 import { signInWithPopup } from "firebase/auth";
 const FormSchema = z.object({
-  message: z.string().min(10,{
-    message: "Message must contain at least 10 character(s)"
+  message: z.string().min(10, {
+    message: "Message must contain at least 10 character(s)",
   }),
 });
 
@@ -151,33 +151,29 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
     },
   });
 
-  const signInWithGoogle =async (data: z.infer<typeof FormSchema>)=>{
-
-  try {
-    if(auth.currentUser){
-      const newData = {
-        name:auth.currentUser.displayName,
-        email:auth.currentUser.email,
-        ...data
-      }
-    return  onSubmit(JSON.stringify(newData))
-    }
-        const res = await signInWithPopup(auth,googleAuthProvider)
+  const signInWithGoogle = async (data: z.infer<typeof FormSchema>) => {
+    try {
+      if (auth.currentUser) {
         const newData = {
-          name:res.user.displayName,
-          email:res.user.email,
-          ...data
-        }
-          onSubmit(JSON.stringify(newData))
-   
-  } catch (error) {
-    alert((error as {code:string}).code)
-  }
-    
-      
- }
+          name: auth.currentUser.displayName,
+          email: auth.currentUser.email,
+          ...data,
+        };
+        return onSubmit(JSON.stringify(newData));
+      }
+      const res = await signInWithPopup(auth, googleAuthProvider);
+      const newData = {
+        name: res.user.displayName,
+        email: res.user.email,
+        ...data,
+      };
+      onSubmit(JSON.stringify(newData));
+    } catch (error) {
+      alert((error as { code: string }).code);
+    }
+  };
 
-  function onSubmit(data:string) {
+  function onSubmit(data: string) {
     mutate(data, {
       onSuccess: () => {
         form.reset();
@@ -211,7 +207,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
             {(error as { message: string }).message}
           </Button>
         )}
-     
+
         {isIdle && <Button type="submit">Continue</Button>}
 
         {isSuccess && (
@@ -251,7 +247,8 @@ function Friend({
                     {friendsList.username}
                   </h3>
                   <p className="text-[.7rem] text-zinc-500  -mt-1">
-                    {friendsList.fname ?? "instagram blocked tanmay scraping 😞"}
+                    {friendsList.fname ??
+                      "instagram blocked tanmay scraping 😞"}
                   </p>
                 </div>
               </div>
