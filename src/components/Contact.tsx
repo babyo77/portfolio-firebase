@@ -9,16 +9,13 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { Input } from "@/components/ui/input";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -37,14 +34,12 @@ import { FriendsInterface } from "@/interface";
 import { UseSubmitFromData } from "@/hook/FormSubmit";
 import { FetchDetails } from "@/hook/FetchDetails";
 import { useGetDetailsQuery } from "@/store/detailsApi";
+import { auth, googleAuthProvider } from "@/firebase/firebase";
+import { signInWithPopup } from "firebase/auth";
 const FormSchema = z.object({
-  name: z.string().min(3).max(30, {
-    message: "Username must be between 4 and 30 characters.",
+  message: z.string().min(10,{
+    message: "Message must contain at least 10 character(s)"
   }),
-  email: z.string().email({
-    message: "Invalid email address.",
-  }),
-  message: z.string().min(10),
 });
 
 export function Contact({ friend }: { friend: boolean }) {
@@ -92,7 +87,6 @@ export function Contact({ friend }: { friend: boolean }) {
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
                 <DialogTitle>Let's Build.</DialogTitle>
-                <DialogDescription>Enter you details.</DialogDescription>
               </DialogHeader>
               <ProfileForm />
             </DialogContent>
@@ -138,7 +132,6 @@ export function Contact({ friend }: { friend: boolean }) {
           <DialogContent className="rounded-lg w-[84svw]">
             <DialogHeader>
               <DialogTitle>Let's Build.</DialogTitle>
-              <DialogDescription>Enter you details.</DialogDescription>
             </DialogHeader>
             <ProfileForm />
           </DialogContent>
@@ -151,17 +144,41 @@ export function Contact({ friend }: { friend: boolean }) {
 function ProfileForm({ className }: React.ComponentProps<"form">) {
   const { error, isError, isLoading, isIdle, mutate, isSuccess } =
     UseSubmitFromData();
-
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      name: "",
-      email: "",
       message: "",
     },
   });
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    mutate(JSON.stringify(data), {
+
+  const signInWithGoogle =async (data: z.infer<typeof FormSchema>)=>{
+
+  try {
+    if(auth.currentUser){
+      const newData = {
+        name:auth.currentUser.displayName,
+        email:auth.currentUser.email,
+        ...data
+      }
+    return  onSubmit(JSON.stringify(newData))
+    }
+        const res = await signInWithPopup(auth,googleAuthProvider)
+        const newData = {
+          name:res.user.displayName,
+          email:res.user.email,
+          ...data
+        }
+          onSubmit(JSON.stringify(newData))
+   
+  } catch (error) {
+    alert((error as {code:string}).code)
+  }
+    
+      
+ }
+
+  function onSubmit(data:string) {
+    mutate(data, {
       onSuccess: () => {
         form.reset();
       },
@@ -170,42 +187,16 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={form.handleSubmit(signInWithGoogle)}
         className={cn("grid items-start gap-4 text-xs", className)}
       >
-        <FormField
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Name</FormLabel>
-              <FormControl>
-                <Input placeholder="naruto" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input placeholder="naruto@gmail.com" {...field} />
-              </FormControl>
-
-              <FormMessage />
-            </FormItem>
-          )}
-        />
         <FormField
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea
-                  className="h-24"
+                  className="h-28"
                   placeholder="Type your message here."
                   {...field}
                 />
@@ -220,7 +211,8 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
             {(error as { message: string }).message}
           </Button>
         )}
-        {isIdle && <Button type="submit">Submit</Button>}
+     
+        {isIdle && <Button type="submit">Continue</Button>}
 
         {isSuccess && (
           <Button disabled={true} className="bg-green-300 text-black">

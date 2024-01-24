@@ -12,7 +12,7 @@ import { useState } from "react";
 import { StoriesSrc } from "@/interface";
 import { FaInstagram } from "react-icons/fa6";
 import { useQuery } from "react-query";
-import { GrFormNextLink } from "react-icons/gr"
+import { GrFormNextLink } from "react-icons/gr";
 import { GrFormPreviousLink } from "react-icons/gr";
 interface VideoLink {
   link: string[];
@@ -22,38 +22,37 @@ interface VideoLink {
 
 export const Stories: React.FC<VideoLink> = ({ link, username, fullName }) => {
   const [videLoaded, setVideoLoaded] = useState<boolean>(false);
-  const [currentId,setCurrentId] = useState<number>(0)
+  const [currentId, setCurrentId] = useState<number>(0);
 
   const handPlay = () => {
     setVideoLoaded(true);
   };
 
-  const NextStory = ()=>{
-    if(currentId>=link.length-1)return
-    setCurrentId((prev)=>prev+1)
-    
-  }
-  const PrevStory = ()=>{
-    if(currentId<=0)return setCurrentId(0)
-    setCurrentId((prev)=>prev-1)  
-  }
+  const NextStory = () => {
+    if (currentId >= link.length - 1) return;
+    setCurrentId((prev) => prev + 1);
+  };
+  const PrevStory = () => {
+    if (currentId <= 0) return setCurrentId(0);
+    setCurrentId((prev) => prev - 1);
+  };
 
+  const FetchStory = async (link: string): Promise<StoriesSrc> => {
+    setVideoLoaded(false);
+    const response = await axios.get<StoriesSrc[]>(
+      `https://instx-api.vercel.app/api/v1/?link=${link}`
+    );
+    return response.data[0];
+  };
 
-  const FetchStory = async (link:string):Promise<StoriesSrc> => {
-      setVideoLoaded(false)
-      const response = await axios.get<StoriesSrc[]>(
-        `https://instx-api.vercel.app/api/v1/?link=${link}`
-      );
-      console.log(response.data);
-      
-     return response.data[0]
-    };
-
-const {data} =  useQuery(["stories",currentId],()=>FetchStory(link[currentId]),{
-        refetchOnWindowFocus:false,
-        staleTime:Infinity,
-      })
-
+  const { data } = useQuery(
+    ["stories", currentId],
+    () => FetchStory(link[currentId]),
+    {
+      refetchOnWindowFocus: false,
+      staleTime: Infinity,
+    }
+  );
 
   return (
     <Dialog>
@@ -72,7 +71,7 @@ const {data} =  useQuery(["stories",currentId],()=>FetchStory(link[currentId]),{
           </DialogTitle>
         </DialogHeader>
         <div className="flex justify-center gap-1 text-3xl  items-center ">
-        <GrFormPreviousLink onClick={PrevStory} className="cursor-pointer" />
+          <GrFormPreviousLink onClick={PrevStory} className="cursor-pointer" />
           <video
             autoPlay
             loop
@@ -82,7 +81,7 @@ const {data} =  useQuery(["stories",currentId],()=>FetchStory(link[currentId]),{
             onLoadedData={() => setVideoLoaded(false)}
             className=" rounded-xl relative object-cover shadow-sm w-[18rem] bg-black   h-[77svh] "
           />
-          <GrFormNextLink onClick={NextStory} className=" cursor-pointer"/>
+          <GrFormNextLink onClick={NextStory} className=" cursor-pointer" />
           {!videLoaded && (
             <div className=" absolute">
               <Loader />
