@@ -157,6 +157,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
         const newData = {
           name: auth.currentUser.displayName,
           email: auth.currentUser.email,
+          token:auth.currentUser.getIdToken(),
           ...data,
         };
         return onSubmit(JSON.stringify(newData));
@@ -165,6 +166,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
       const newData = {
         name: res.user.displayName,
         email: res.user.email,
+        token:res.user.getIdToken(),
         ...data,
       };
       onSubmit(JSON.stringify(newData));
