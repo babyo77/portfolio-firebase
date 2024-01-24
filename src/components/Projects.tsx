@@ -15,7 +15,7 @@ const Projects: React.FC<ProjectProps> = ({ link, title, desc, tech ,users}) => 
             {title}
           </span> 
           {users && (
-              <span className="ml-2 tracking-tighter no-underline rounded-lg px-2 py-0.5  font-mono text-[.7rem] bg-primary text-primary-foreground ">{users}+ Users</span>
+              <span className="ml-2 tracking-tighter no-underline rounded-lg px-2 py-0.5  font-mono text-[.7rem] bg-primary leading-tight text-primary-foreground ">{users}+ Views</span>
             )} 
         </div>
         <span className="text-muted-foreground max-md:text-xs text-sm">{desc}</span>
