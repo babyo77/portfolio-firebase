@@ -80,7 +80,7 @@ const {data} =  useQuery(["stories",currentId],()=>FetchStory(link[currentId]),{
             src={data?.download_link}
             onPlay={handPlay}
             onLoadedData={() => setVideoLoaded(false)}
-            className=" rounded-xl relative object-cover shadow-sm w-[18rem]   h-[77svh] "
+            className=" rounded-xl relative object-cover shadow-sm w-[18rem] bg-black   h-[77svh] "
           />
           <GrFormNextLink onClick={NextStory} className=" cursor-pointer"/>
           {!videLoaded && (
