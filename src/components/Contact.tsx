@@ -157,7 +157,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
         const newData = {
           name: auth.currentUser.displayName,
           email: auth.currentUser.email,
-          token:await auth.currentUser.getIdToken(),
+          token: await auth.currentUser.getIdToken(),
           ...data,
         };
         return onSubmit(JSON.stringify(newData));
@@ -166,7 +166,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
       const newData = {
         name: res.user.displayName,
         email: res.user.email,
-        token:await res.user.getIdToken(),
+        token: await res.user.getIdToken(),
         ...data,
       };
       onSubmit(JSON.stringify(newData));
@@ -206,7 +206,7 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
         {isLoading && <ButtonLoading />}
         {isError && (
           <Button className="bg-red-500" type="submit">
-            {(error as { message: string }).message}
+            {(error as { response: { data: string } }).response.data}
           </Button>
         )}
 
