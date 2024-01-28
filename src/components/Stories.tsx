@@ -61,7 +61,7 @@ export const Stories: React.FC<VideoLink> = ({ link, username, fullName }) => {
           <span className=" font-semibold text-lg capitalize transition-all duration-300 hover:text-blue-300 text-left">
             {fullName}
           </span>
-          <span className="text-xs animate-pulse ">Stories here ▲</span>
+          <span className="text-xs animate-pulse ">stories here ▲</span>
         </div>
       </DialogTrigger>
       <DialogContent className="max-md:h-full  backdrop-blur-md border-none">
