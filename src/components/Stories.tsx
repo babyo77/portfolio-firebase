@@ -64,14 +64,19 @@ export const Stories: React.FC<VideoLink> = ({ link, username, fullName }) => {
           <span className="text-xs animate-pulse ">Stories here ▲</span>
         </div>
       </DialogTrigger>
-      <DialogContent className="max-md:h-full  backdrop-blur-md border-none">
+      <DialogContent className="max-md:h-full backdrop-blur-md border-none">
         <DialogHeader>
           <DialogTitle className="text-sm">
             Backend firebase - deployed on ▲{" "}
           </DialogTitle>
         </DialogHeader>
         <div className="flex justify-center gap-1 text-3xl  items-center ">
-          <GrFormPreviousLink onClick={PrevStory} className="cursor-pointer" />
+        {currentId>0 ?(
+    <GrFormPreviousLink onClick={PrevStory} className="cursor-pointer" />
+        ):(
+          <GrFormPreviousLink onClick={PrevStory} className="cursor-pointer text-zinc-300" />
+        )}
+      
           <video
             autoPlay
             loop
@@ -81,7 +86,11 @@ export const Stories: React.FC<VideoLink> = ({ link, username, fullName }) => {
             onLoadedData={() => setVideoLoaded(false)}
             className=" rounded-xl relative object-cover shadow-sm w-[18rem] bg-black   h-[77svh] "
           />
-          <GrFormNextLink onClick={NextStory} className=" cursor-pointer" />
+          {currentId < link.length-1?(
+     <GrFormNextLink onClick={NextStory} className=" cursor-pointer" />
+          ):(
+            <GrFormNextLink onClick={NextStory} className=" cursor-pointer text-zinc-300" /> 
+          )}
           {!videLoaded && (
             <div className=" absolute">
               <Loader />
