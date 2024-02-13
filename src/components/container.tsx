@@ -13,7 +13,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack }) => {
       <article>
         <div className="pt-4">
           <h2 className="font-mono text-lg tracking-tighter font-semibold">
-            Tech-Stack
+            tech-stack
           </h2>
         </div>
         <div className="mt-4 mb-1 flex items-center gap-1 flex-wrap ">
@@ -29,7 +29,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack }) => {
         </div>
         <div className="pt-4">
           <h2 className="font-mono text-lg tracking-tighter font-semibold">
-            Projects
+            projects
           </h2>
         </div>
 
