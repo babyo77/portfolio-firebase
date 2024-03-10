@@ -1,4 +1,4 @@
-import { Contact } from ".";
+// import { Contact } from ".";
 
 const Footer: React.FC = () => {
   return (
