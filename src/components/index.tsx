@@ -6,7 +6,7 @@ import { Container } from "./container";
 import { Projects } from "./Projects";
 import { CustomBadge } from "./CustomBadge";
 import { Loader } from "./Loader";
-import { Contact } from "./Contact";
+// import { Contact } from "./Contact";
 export {
   Header,
   Footer,
@@ -16,5 +16,5 @@ export {
   Projects,
   CustomBadge,
   Loader,
-  Contact,
+  // Contact,
 };

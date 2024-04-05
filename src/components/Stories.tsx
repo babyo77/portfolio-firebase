@@ -1,58 +1,64 @@
-import axios from "axios";
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Loader } from ".";
-import { useState } from "react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+
 import { StoriesSrc } from "@/interface";
-import { FaInstagram } from "react-icons/fa6";
+import axios from "axios";
 import { useQuery } from "react-query";
-import { GrFormNextLink } from "react-icons/gr";
-import { GrFormPreviousLink } from "react-icons/gr";
+
 interface VideoLink {
   link: string[];
   username: string;
   fullName: string;
+  github: string;
 }
 
-export const Stories: React.FC<VideoLink> = ({ link, username, fullName }) => {
-  const [videLoaded, setVideoLoaded] = useState<boolean>(false);
-  const [currentId, setCurrentId] = useState<number>(0);
+import StoryComp from "react-insta-stories";
+import { Story } from "react-insta-stories/dist/interfaces";
+import { DialogClose } from "@radix-ui/react-dialog";
+import { useRef } from "react";
 
-  const handPlay = () => {
-    setVideoLoaded(true);
-  };
+export const Stories: React.FC<VideoLink> = ({
+  link,
+  username,
+  fullName,
+  github,
+}) => {
+  const FetchStory = async () => {
+    const Stories: Story[] = [];
 
-  const NextStory = () => {
-    if (currentId >= link.length - 1) return;
-    setCurrentId((prev) => prev + 1);
-  };
-  const PrevStory = () => {
-    if (currentId <= 0) return setCurrentId(0);
-    setCurrentId((prev) => prev - 1);
-  };
-
-  const FetchStory = async (link: string): Promise<StoriesSrc> => {
-    setVideoLoaded(false);
-    const response = await axios.get<StoriesSrc[]>(
-      `https://instx-api.vercel.app/api/v1/?link=${link}`
-    );
-    return response.data[0];
-  };
-
-  const { data } = useQuery(
-    ["stories", currentId],
-    () => FetchStory(link[currentId]),
-    {
-      refetchOnWindowFocus: false,
-      staleTime: Infinity,
+    for (const linkItem of link) {
+      const response = await axios.get<StoriesSrc[]>(
+        `https://instx-api.vercel.app/api/v1/?link=${linkItem}`
+      );
+      Stories.push({
+        header: {
+          heading: username,
+          subheading: "",
+          profileImage: `https://github.com/${github.replace(
+            "https://github.com/",
+            ""
+          )}.png`,
+        },
+        type: "video",
+        url: response.data[0].download_link,
+      });
     }
-  );
+
+    return Stories;
+  };
+
+  const { data } = useQuery<Story[]>(["stories"], FetchStory, {
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    staleTime: Infinity,
+  });
+
+  const ref = useRef<HTMLButtonElement>(null);
+
+  const handleClose = () => {
+    if (ref.current) {
+      ref.current.click();
+    }
+  };
 
   return (
     <Dialog>
@@ -64,61 +70,25 @@ export const Stories: React.FC<VideoLink> = ({ link, username, fullName }) => {
           <span className="text-xs  ">stories here ▲</span>
         </div>
       </DialogTrigger>
-      <DialogContent className="max-md:h-full backdrop-blur-md border-none">
-        <DialogHeader>
-          <DialogTitle className="text-sm">
-            Backend firebase - deployed on ▲{" "}
-          </DialogTitle>
-        </DialogHeader>
-        <div className="flex justify-center gap-1 text-3xl  items-center ">
-        {currentId>0 ?(
-    <GrFormPreviousLink onClick={PrevStory} className="cursor-pointer" />
-        ):(
-          <GrFormPreviousLink onClick={PrevStory} className="cursor-pointer text-zinc-300" />
-        )}
-      
-          <video
-            autoPlay
-            loop
-            playsInline
-            src={data?.download_link}
-            onPlay={handPlay}
-            onLoadedData={() => setVideoLoaded(false)}
-            className=" rounded-xl relative object-cover shadow-sm w-[18rem] bg-black   h-[77svh] "
+      <DialogContent className="border-none bg-transparent justify-center">
+        {data && (
+          <StoryComp
+            keyboardNavigation
+            storyStyles={{
+              borderRadius: ".4rem",
+            }}
+            storyInnerContainerStyles={{
+              borderRadius: ".4rem",
+            }}
+            storyContainerStyles={{
+              borderRadius: ".4rem",
+            }}
+            onAllStoriesEnd={handleClose}
+            stories={data}
           />
-          {currentId < link.length-1?(
-     <GrFormNextLink onClick={NextStory} className=" cursor-pointer" />
-          ):(
-            <GrFormNextLink onClick={NextStory} className=" cursor-pointer text-zinc-300" /> 
-          )}
-          {!videLoaded && (
-            <div className=" absolute">
-              <Loader />
-            </div>
-          )}
-        </div>
-
-        <DialogFooter>
-          <div className="flex justify-between">
-            <p className="text-xs hover:text-red-500 ">
-              View on
-              <a
-                href={link[currentId]}
-                target="_blank"
-                id={username}
-                className="px-1 underline underline-offset-2 "
-              >
-                instagram.
-              </a>
-            </p>
-
-            <FaInstagram
-              className="h-4 w-4 cursor-pointer"
-              onClick={() => window.open(link[currentId])}
-            />
-          </div>
-        </DialogFooter>
+        )}
       </DialogContent>
+      <DialogClose ref={ref}></DialogClose>
     </Dialog>
   );
 };
