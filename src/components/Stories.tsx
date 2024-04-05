@@ -85,7 +85,6 @@ export const Stories: React.FC<VideoLink> = ({
             storyContainerStyles={{
               borderRadius: ".4rem",
             }}
-            defaultInterval={1100}
             onAllStoriesEnd={handleClose}
             stories={data}
           />
