@@ -15,6 +15,7 @@ import StoryComp from "react-insta-stories";
 import { Story } from "react-insta-stories/dist/interfaces";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { useRef } from "react";
+import { Loader } from "./Loader";
 
 export const Stories: React.FC<VideoLink> = ({
   link,
@@ -71,7 +72,7 @@ export const Stories: React.FC<VideoLink> = ({
         </div>
       </DialogTrigger>
       <DialogContent className="border-none bg-transparent justify-center">
-        {data && (
+        {data ? (
           <StoryComp
             keyboardNavigation
             storyStyles={{
@@ -80,12 +81,15 @@ export const Stories: React.FC<VideoLink> = ({
             storyInnerContainerStyles={{
               borderRadius: ".4rem",
             }}
+            loader={<Loader />}
             storyContainerStyles={{
               borderRadius: ".4rem",
             }}
             onAllStoriesEnd={handleClose}
             stories={data}
           />
+        ) : (
+          <Loader />
         )}
       </DialogContent>
       <DialogClose ref={ref}></DialogClose>
