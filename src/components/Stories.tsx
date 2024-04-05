@@ -41,6 +41,7 @@ export const Stories: React.FC<VideoLink> = ({
         },
         type: "video",
         url: response.data[0].download_link,
+        preloadResource: true,
       });
     }
 
