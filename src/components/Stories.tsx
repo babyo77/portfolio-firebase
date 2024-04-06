@@ -69,7 +69,7 @@ export const Stories: React.FC<VideoLink> = ({
           <span className=" font-semibold text-lg  transition-all duration-300 hover:text-blue-300 text-left">
             {fullName}
           </span>
-          <span className="text-xs  ">stories here ▲</span>
+          <span className="text-xs  ">Stories here ▲</span>
         </div>
       </DialogTrigger>
       <DialogContent className="border-none bg-transparent justify-center">
