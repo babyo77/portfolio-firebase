@@ -1,9 +1,8 @@
-import { ModeToggle } from ".";
-
 import { LuGithub } from "react-icons/lu";
 import { FaXTwitter } from "react-icons/fa6";
 import { Button } from "./ui/button";
 import { Stories } from "./Stories";
+import { SiLeetcode } from "react-icons/si";
 
 interface HeaderProps {
   name: string;
@@ -11,6 +10,7 @@ interface HeaderProps {
   username: string;
   github: string;
   twitter: string;
+  leetCode: string;
 }
 const Header: React.FC<HeaderProps> = ({
   name,
@@ -18,6 +18,7 @@ const Header: React.FC<HeaderProps> = ({
   username,
   github,
   twitter,
+  leetCode,
 }) => {
   return (
     <header className=" flex justify-between py-3 z-10  items-center container w-full backdrop-blur-md">
@@ -46,7 +47,13 @@ const Header: React.FC<HeaderProps> = ({
           <FaXTwitter className="h-4 w-4" />
         </Button>
 
-        <ModeToggle />
+        <Button
+          variant={"ghost"}
+          onClick={() => window.open(leetCode)}
+          className="px-2.5"
+        >
+          <SiLeetcode className="h-4 w-4" />
+        </Button>
       </div>
     </header>
   );

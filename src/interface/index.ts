@@ -8,6 +8,7 @@ interface StoriesSrc {
 }
 interface User {
   id: string;
+  leetCode: string;
   username: string;
   name: string;
   bio: string;
@@ -17,7 +18,7 @@ interface User {
   projects: ProjectProps[];
   github: string;
   twitter: string;
-  friends:string[]
+  friends: string[];
 }
 
 interface ProjectProps {
@@ -25,7 +26,7 @@ interface ProjectProps {
   title: string;
   desc: string;
   tech: string[];
-  users:string
+  users: string;
 }
 interface FriendsInterface {
   fname: string;
@@ -34,9 +35,4 @@ interface FriendsInterface {
   username: string;
 }
 
-export type {
-  User,
-  StoriesSrc,
-  ProjectProps,
-  FriendsInterface,
-};
+export type { User, StoriesSrc, ProjectProps, FriendsInterface };

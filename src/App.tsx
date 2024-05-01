@@ -21,6 +21,7 @@ function App() {
                   story={Details?.story}
                   github={Details.github}
                   twitter={Details.twitter}
+                  leetCode={Details.leetCode}
                 />
                 <Container
                   techStack={Details?.techStack}
