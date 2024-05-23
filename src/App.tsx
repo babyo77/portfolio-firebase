@@ -12,7 +12,7 @@ function App() {
         {Details ? (
           Details && (
             <>
-              <main className="container fade-in py-8">
+              <main className=" fade-in py-8">
                 <Header
                   name={Details?.name}
                   username={Details?.username}
