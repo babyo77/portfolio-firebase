@@ -21,7 +21,7 @@ const Projects: React.FC<ProjectProps> = ({
           </span>
           {users && (
             <span className="ml-2 tracking-tighter no-underline rounded-lg px-2 py-0.5  font-mono text-[.7rem] bg-primary leading-tight text-primary-foreground ">
-              {users}+ Visitors
+              {users}
             </span>
           )}
         </div>
@@ -37,5 +37,4 @@ const Projects: React.FC<ProjectProps> = ({
     </li>
   );
 };
-// music web app where you can listen add free music with group listening.
 export { Projects };
