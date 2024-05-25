@@ -39,7 +39,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
                 alt="discord"
               />
               <img
-                className="h-4 w-4  border-2 border-neutral-800 rounded-full right-1.5  -bottom-0.5 z-20 absolute object-cover"
+                className="h-4 w-4  border-2 border-neutral-800 rounded-full right-2 max-md:right-1  -bottom-0.5 z-20 absolute object-cover"
                 src={`https://cdn.discordapp.com/app-assets/${lanyard.data.data.activities[0].application_id}/${lanyard.data.data.activities[0].assets?.small_image}.png`}
                 onError={(e) => (e.currentTarget.src = "/assets/favicon.webp")}
                 alt="discord"
