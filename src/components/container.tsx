@@ -30,10 +30,10 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
           ))}
         </div>
         {lanyard.data && (
-          <div className=" flex border   items-center rounded-lg p-2">
-            <div className="h-14 w-20 relative  rounded-md ">
+          <div className=" flex border   items-center rounded-sm p-2">
+            <div className="h-14 w-20 relative  rounded-sm ">
               <img
-                className="h-14 w-14 object-cover rounded-md"
+                className="h-14 w-14 object-cover rounded-sm"
                 src={`https://cdn.discordapp.com/app-assets/${lanyard.data.data.activities[0].application_id}/${lanyard.data.data.activities[0].assets?.large_image}.png`}
                 onError={(e) => (e.currentTarget.src = "/assets/favicon.webp")}
                 alt="discord"
