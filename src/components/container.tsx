@@ -33,7 +33,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
         </div>
         {lanyard.data && (
           <div className=" flex border space-x-2  items-center rounded-lg p-2">
-            <div className="h-14 w-14 relative  rounded-md ">
+            <div className="h-14 w-16 relative  rounded-md ">
               <AspectRatio ratio={1 / 1}>
                 <img
                   className="h-14 w-14 object-cover rounded-md"
