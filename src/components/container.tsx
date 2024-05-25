@@ -69,7 +69,9 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
               : "pt-4"
           }`}
         >
-          <h2 className="font-mono text-lg tracking-tighter ">projects</h2>
+          <h2 className=" text-lg mt-1 tracking-tight font-medium leading-tight ">
+            Projects
+          </h2>
         </div>
 
         {!project ? (
