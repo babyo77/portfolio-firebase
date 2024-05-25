@@ -80,7 +80,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
             <Loader />
           </div>
         ) : (
-          <ul className="space-y-3 py-3  flex flex-col ">
+          <ul className="space-y-3 py-0.5 flex flex-col ">
             {project.map((data, id) => (
               <Projects
                 key={id}
