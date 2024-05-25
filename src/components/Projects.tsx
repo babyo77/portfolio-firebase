@@ -25,7 +25,7 @@ const Projects: React.FC<ProjectProps> = ({
             </span>
           )}
         </div>
-        <span className="text-muted-foreground max-md:text-sm text-xs">
+        <span className="text-muted-foreground max-md:text-xs text-xs">
           {desc}
         </span>
         <span className="text-muted-foreground ">
