@@ -22,6 +22,7 @@ function App() {
                   leetCode={Details.leetCode}
                 />
                 <Container
+                  discord={Details?.discord}
                   techStack={Details?.techStack}
                   project={Details?.projects}
                 />

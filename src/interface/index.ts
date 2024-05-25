@@ -10,6 +10,7 @@ interface User {
   id: string;
   leetCode: string;
   username: string;
+  discord: string;
   name: string;
   bio: string;
   story: string[];
