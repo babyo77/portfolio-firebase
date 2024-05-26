@@ -8,7 +8,7 @@ function App() {
 
   return (
     <ReactLenis root>
-      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         {Details ? (
           Details && (
             <>

@@ -29,8 +29,9 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
             </Badge>
           ))}
         </div>
+
         {lanyard.data && (
-          <div className=" flex border   items-center rounded-sm p-2">
+          <div className=" flex border    border-zinc-900/40 text-zinc-300  items-center rounded-sm p-2">
             <div className="h-14 w-20 relative  rounded-sm ">
               <img
                 className="h-14 w-14 object-cover rounded-sm"
@@ -53,7 +54,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
             </div>
 
             <div className="w-full  text-xs items-center leading-tight">
-              <p className="font-medium">
+              <p className="font-medium text-zinc-100 text-sm">
                 {lanyard.data.data.activities[0]?.name || "Currently offline"}
               </p>
               <p className="dark:text-zinc-300">
@@ -72,6 +73,19 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
             </div>
           </div>
         )}
+        <div className="my-2">
+          {/* <p className="mb-2 font-medium text-base">Listening To</p> */}
+          <iframe
+            className=" rounded-sm"
+            src="https://napster-drx.vercel.app/embed/user/f73b3f47-cfe2-4af8-8b74-071423d8208c"
+            width="100%"
+            height="78"
+            frameBorder="0"
+            allowFullScreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
         <div
           className={`${
             lanyard.data && lanyard.data.data.activities.length > 0
