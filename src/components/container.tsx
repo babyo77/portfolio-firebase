@@ -75,16 +75,22 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
         )}
         <div className="mt-2">
           {/* <p className="mb-2 font-medium text-base">Listening To</p> */}
-          <iframe
-            className=" rounded-sm"
-            src="https://napster-drx.vercel.app/embed/user/f73b3f47-cfe2-4af8-8b74-071423d8208c"
-            width="100%"
-            height="78"
-            frameBorder="0"
-            allowFullScreen
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
+          <a
+            href="https://napster-drx.vercel.app/embed/user/f73b3f47-cfe2-4af8-8b74-071423d8208c"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <iframe
+              className=" rounded-sm"
+              src="https://napster-drx.vercel.app/embed/user/f73b3f47-cfe2-4af8-8b74-071423d8208c"
+              width="100%"
+              height="78"
+              frameBorder="0"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </a>
         </div>
         <div
           className={`${
