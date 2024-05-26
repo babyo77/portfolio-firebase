@@ -54,7 +54,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
             </div>
 
             <div className="w-full  text-xs items-center leading-tight">
-              <p className="font-medium text-zinc-100 text-sm">
+              <p className="font-medium text-zinc-100">
                 {lanyard.data.data.activities[0]?.name || "Currently offline"}
               </p>
               <p className="dark:text-zinc-300">
