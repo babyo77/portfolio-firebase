@@ -34,7 +34,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
           <div className=" flex border  bg-neutral-800/5  border-zinc-900/40 text-zinc-300  items-center rounded-sm p-2 pt-2.5">
             <div className="h-14 w-20 relative bg-neutral-800/5 rounded-sm ">
               <img
-                className="h-14 w-14 object-cover bg-neutral-800/5 rounded-sm"
+                className="h-14 w-14 object-cover bg-neutral-800 rounded-sm"
                 src={`https://cdn.discordapp.com/app-assets/${lanyard.data.data.activities[0]?.application_id}/${lanyard.data.data.activities[0]?.assets?.large_image}.png`}
                 onError={(e) =>
                   (e.currentTarget.src =
