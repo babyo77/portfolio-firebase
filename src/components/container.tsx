@@ -73,7 +73,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
             </div>
           </div>
         )}
-        <div className="my-2">
+        <div className="mt-2">
           {/* <p className="mb-2 font-medium text-base">Listening To</p> */}
           <iframe
             className=" rounded-sm"
@@ -89,7 +89,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
         <div
           className={`${
             lanyard.data && lanyard.data.data.activities.length > 0
-              ? "pt-0"
+              ? "pt-1.5"
               : "pt-4"
           }`}
         >
