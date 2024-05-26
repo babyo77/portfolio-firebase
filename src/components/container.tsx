@@ -89,7 +89,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
         <div
           className={`${
             lanyard.data && lanyard.data.data.activities.length > 0
-              ? "pt-1.5"
+              ? "pt-0"
               : "pt-4"
           }`}
         >
