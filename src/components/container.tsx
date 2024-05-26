@@ -31,7 +31,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
         </div>
 
         {lanyard.data && (
-          <div className=" flex border  bg-neutral-800/5  border-zinc-900/40 text-zinc-300  items-center rounded-sm p-2">
+          <div className=" flex border  bg-neutral-800/5  border-zinc-900/40 text-zinc-300  items-center rounded-sm p-2 pt-2.5">
             <div className="h-14 w-20 relative  rounded-sm ">
               <img
                 className="h-14 w-14 object-cover rounded-sm"
