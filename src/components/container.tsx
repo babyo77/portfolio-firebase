@@ -29,9 +29,32 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
             </Badge>
           ))}
         </div>
+        <div>
+          <h2 className=" text-lg mt-1 tracking-tight font-medium leading-tight ">
+            Projects
+          </h2>
+        </div>
 
+        {!project ? (
+          <div className="space-y-3 py-3 min-h-96 flex flex-col justify-center items-center">
+            <Loader />
+          </div>
+        ) : (
+          <ul className="space-y-3 py-0.5 flex flex-col ">
+            {project.map((data, id) => (
+              <Projects
+                key={id}
+                title={data.title}
+                tech={data.tech}
+                link={data.link}
+                desc={data.desc}
+                users={data.users}
+              />
+            ))}
+          </ul>
+        )}
         {lanyard.data && (
-          <div className=" flex border  bg-neutral-800/5  border-zinc-900/40 text-zinc-300  items-center rounded-sm p-2 pt-2.5">
+          <div className=" flex border borer-zinc-800 bg-neutral-800/5 text-zinc-300  items-center rounded-sm p-2 pt-2.5 mt-4">
             <div className="h-14 w-20 relative  rounded-sm ">
               <img
                 className="h-14 w-14 object-cover  rounded-sm"
@@ -73,7 +96,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
             </div>
           </div>
         )}
-        <div className="mt-2">
+        <div className="mt-2 border borer-zinc-800 rounded-sm">
           {/* <p className="mb-2 font-medium text-base">Listening To</p> */}
           <a
             href="https://napster-drx.vercel.app/embed/user/f73b3f47-cfe2-4af8-8b74-071423d8208c"
@@ -92,36 +115,6 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
             ></iframe>
           </a>
         </div>
-        <div
-          className={`${
-            lanyard.data && lanyard.data.data.activities.length > 0
-              ? "pt-1.5"
-              : "pt-4"
-          }`}
-        >
-          <h2 className=" text-lg mt-1 tracking-tight font-medium leading-tight ">
-            Projects
-          </h2>
-        </div>
-
-        {!project ? (
-          <div className="space-y-3 py-3 min-h-96 flex flex-col justify-center items-center">
-            <Loader />
-          </div>
-        ) : (
-          <ul className="space-y-3 py-0.5 flex flex-col ">
-            {project.map((data, id) => (
-              <Projects
-                key={id}
-                title={data.title}
-                tech={data.tech}
-                link={data.link}
-                desc={data.desc}
-                users={data.users}
-              />
-            ))}
-          </ul>
-        )}
       </article>
       <Footer />
     </div>
