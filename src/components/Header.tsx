@@ -2,8 +2,7 @@ import { LuGithub } from "react-icons/lu";
 import { FaXTwitter } from "react-icons/fa6";
 import { Button } from "./ui/button";
 import { Stories } from "./Stories";
-import { SiLeetcode } from "react-icons/si";
-
+import { ImNpm } from "react-icons/im";
 interface HeaderProps {
   name: string;
   story: string[];
@@ -33,6 +32,13 @@ const Header: React.FC<HeaderProps> = ({
       <div className="flex items-center justify-center">
         <Button
           variant={"ghost"}
+          onClick={() => window.open(twitter)}
+          className="px-2.5"
+        >
+          <FaXTwitter className="h-4 w-4" />
+        </Button>
+        <Button
+          variant={"ghost"}
           onClick={() => window.open(github)}
           className="px-2.5"
         >
@@ -41,18 +47,12 @@ const Header: React.FC<HeaderProps> = ({
 
         <Button
           variant={"ghost"}
-          onClick={() => window.open(twitter)}
+          onClick={() =>
+            window.open("https://www.npmjs.com/~babyo77") || leetCode
+          }
           className="px-2.5"
         >
-          <FaXTwitter className="h-4 w-4" />
-        </Button>
-
-        <Button
-          variant={"ghost"}
-          onClick={() => window.open(leetCode)}
-          className="px-2.5"
-        >
-          <SiLeetcode className="h-4 w-4" />
+          <ImNpm className="h-4 w-4" />
         </Button>
       </div>
     </header>
