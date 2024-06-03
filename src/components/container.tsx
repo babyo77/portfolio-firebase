@@ -30,7 +30,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
           ))}
         </div>
         <div>
-          <h2 className=" text-lg mt-1 font-mono mb-2 tracking-tight font-medium leading-tight ">
+          <h2 className="font-mono text-lg tracking-tighter pb-4 pt-2">
             Projects
           </h2>
         </div>
@@ -40,7 +40,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
             <Loader />
           </div>
         ) : (
-          <ul className="space-y-3 py-0.5 flex flex-col ">
+          <ul className="space-y-3 py-0.5 pb-2 flex flex-col ">
             {project.map((data, id) => (
               <Projects
                 key={id}

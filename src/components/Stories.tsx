@@ -66,10 +66,8 @@ export const Stories: React.FC<VideoLink> = ({
     <Dialog>
       <DialogTrigger asChild>
         <div className="flex flex-col">
-          <span className=" font-semibold text-lg  transition-all duration-300 hover:text-blue-300 text-left">
-            {fullName}
-          </span>
-          <span className="text-xs  ">What's happening?</span>
+          <span className=" text-lg font-bold tracking-wide">{fullName}</span>
+          <span className="text-xs ml-0.5">happening now</span>
         </div>
       </DialogTrigger>
       <DialogContent className="border-none bg-transparent justify-center">

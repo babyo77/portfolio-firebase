@@ -17,7 +17,7 @@ const Projects: React.FC<ProjectProps> = ({
         target="_blank"
       >
         <div>
-          <span className="font-medium underline underline-offset-4 transition-all duration-300 group-hover:text-blue-300 ">
+          <span className="font-medium underline underline-offset-4">
             {title}
           </span>
           {users && (
@@ -32,7 +32,7 @@ const Projects: React.FC<ProjectProps> = ({
         <span className="text-muted-foreground max-md:text-xs text-xs">
           {desc}
         </span>
-        <span className="text-muted-foreground ">
+        <span className="text-muted-foreground  hidden">
           {tech?.map((lang, id) =>
             lang ? <CustomBadge key={id + lang} techStack={lang} /> : null
           )}
