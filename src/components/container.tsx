@@ -30,7 +30,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
           ))}
         </div>
         <div>
-          <h2 className=" text-lg mt-1 font-mono tracking-tight font-medium leading-tight ">
+          <h2 className=" text-lg mt-1 font-mono mb-2 tracking-tight font-medium leading-tight ">
             Projects
           </h2>
         </div>
