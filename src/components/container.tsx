@@ -99,13 +99,13 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
         <div className="mt-2 border borer-zinc-800 rounded-sm">
           {/* <p className="mb-2 font-medium text-base">Listening To</p> */}
           <a
-            href="https://napster-drx.vercel.app/embed/user/f73b3f47-cfe2-4af8-8b74-071423d8208c"
+            href="https://napster-drx.vercel.app/embed/user/4e80b34b-6eb4-4ac4-9bff-73011df25012"
             target="_blank"
             rel="noopener noreferrer"
           >
             <iframe
               className=" rounded-sm"
-              src="https://napster-drx.vercel.app/embed/user/f73b3f47-cfe2-4af8-8b74-071423d8208c"
+              src="https://napster-drx.vercel.app/embed/user/4e80b34b-6eb4-4ac4-9bff-73011df25012"
               width="100%"
               height="78"
               frameBorder="0"
