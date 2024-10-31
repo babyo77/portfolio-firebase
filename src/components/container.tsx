@@ -60,21 +60,21 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
               <img
                 className="h-14 w-14 object-cover  rounded-sm"
                 src={
-                  lanyard.data.data.activities[0].assets?.large_image.startsWith(
+                  lanyard?.data?.data.activities[0]?.assets?.large_image?.startsWith(
                     "mp:external"
                   )
-                    ? lanyard.data.data.activities[0].assets?.large_image.includes(
+                    ? lanyard?.data?.data.activities[0]?.assets?.large_image?.includes(
                         "%3Furl%3Dhttps"
                       )
                       ? `https://wsrv.nl/?url=${decodeURIComponent(
-                          lanyard.data.data.activities[0].assets?.large_image.match(
+                          lanyard?.data?.data?.activities[0]?.assets?.large_image?.match(
                             /%3Furl%3D(https%3A%2F%2Flh3\.googleusercontent\.com%2F[^/]+)/ // Match until the first '/' after 'lh3.googleusercontent.com/'
                           )?.[1] || ""
                         )}`
-                      : `https://${lanyard.data.data.activities[0].assets?.large_image
+                      : `https://${lanyard?.data?.data?.activities[0]?.assets?.large_image
                           .split("/https/")
                           .pop()}`
-                    : `https://cdn.discordapp.com/app-assets/${lanyard.data.data.activities[0]?.application_id}/${lanyard.data.data.activities[0]?.assets?.large_image}.png`
+                    : `https://cdn.discordapp.com/app-assets/${lanyard?.data?.data?.activities[0]?.application_id}/${lanyard?.data?.data?.activities[0]?.assets?.large_image}.png`
                 }
                 onError={(e) =>
                   (e.currentTarget.src =
