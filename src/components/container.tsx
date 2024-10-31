@@ -12,6 +12,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
   const lanyard = useLanyard({
     userId: String(discord),
   });
+
   return (
     <div className=" container flex flex-col  space-y-2 ">
       <article>
@@ -62,9 +63,17 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
                   lanyard.data.data.activities[0].assets?.large_image.startsWith(
                     "mp:external"
                   )
-                    ? `https://${lanyard.data.data.activities[0].assets?.large_image
-                        .split("/https/")
-                        .pop()}`
+                    ? lanyard.data.data.activities[0].assets?.large_image.includes(
+                        "%3Furl%3Dhttps"
+                      )
+                      ? `https://wsrv.nl/?url=${decodeURIComponent(
+                          lanyard.data.data.activities[0].assets?.large_image.match(
+                            /%3Furl%3D(https%3A%2F%2Flh3\.googleusercontent\.com%2F[^/]+)/ // Match until the first '/' after 'lh3.googleusercontent.com/'
+                          )?.[1] || ""
+                        )}`
+                      : `https://${lanyard.data.data.activities[0].assets?.large_image
+                          .split("/https/")
+                          .pop()}`
                     : `https://cdn.discordapp.com/app-assets/${lanyard.data.data.activities[0]?.application_id}/${lanyard.data.data.activities[0]?.assets?.large_image}.png`
                 }
                 onError={(e) =>
