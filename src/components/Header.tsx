@@ -1,7 +1,7 @@
 import { LuGithub } from "react-icons/lu";
 import { FaXTwitter } from "react-icons/fa6";
 import { Button } from "./ui/button";
-import { Stories } from "./Stories";
+
 import { ImNpm } from "react-icons/im";
 interface HeaderProps {
   name: string;
@@ -13,8 +13,7 @@ interface HeaderProps {
 }
 const Header: React.FC<HeaderProps> = ({
   name,
-  story,
-  username,
+
   github,
   twitter,
   leetCode,
@@ -22,12 +21,15 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header className=" flex justify-between py-3 z-10  items-center container w-full backdrop-blur-md">
       <div className="cursor-pointer flex flex-col">
-        <Stories
-          link={story}
-          fullName={name}
-          username={username}
-          github={github}
-        />
+        <div className="flex flex-col">
+          <span className=" text-lg font-bold tracking-wide">{name}</span>
+          <a
+            href="mailto:devisantosh504@gmail.com"
+            className="text-xs ml-0.5 text-zinc-400"
+          >
+            Email
+          </a>
+        </div>
       </div>
       <div className="flex items-center justify-center">
         <Button
