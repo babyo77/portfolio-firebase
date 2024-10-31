@@ -58,7 +58,15 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
             <div className="h-14 w-20 relative  rounded-sm ">
               <img
                 className="h-14 w-14 object-cover  rounded-sm"
-                src={`https://cdn.discordapp.com/app-assets/${lanyard.data.data.activities[0]?.application_id}/${lanyard.data.data.activities[0]?.assets?.large_image}.png`}
+                src={
+                  lanyard.data.data.activities[0].assets?.large_image.startsWith(
+                    "mp:external"
+                  )
+                    ? `https://${lanyard.data.data.activities[0].assets?.large_image
+                        .split("/https/")
+                        .pop()}`
+                    : `https://cdn.discordapp.com/app-assets/${lanyard.data.data.activities[0]?.application_id}/${lanyard.data.data.activities[0]?.assets?.large_image}.png`
+                }
                 onError={(e) =>
                   (e.currentTarget.src =
                     "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png")
