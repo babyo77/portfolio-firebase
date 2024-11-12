@@ -17,9 +17,7 @@ const Projects: React.FC<ProjectProps> = ({
         target="_blank"
       >
         <div>
-          <span className="font-medium underline underline-offset-4">
-            {title}
-          </span>
+          <span className="font-medium">{title}</span>
           {users && (
             <Badge
               variant={users !== "archived" ? "default" : "secondary"}
