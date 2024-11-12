@@ -22,6 +22,7 @@ function App() {
                   leetCode={Details.leetCode}
                 />
                 <Container
+                  bio={Details.bio}
                   discord={Details?.discord}
                   techStack={Details?.techStack}
                   project={Details?.projects}
@@ -31,8 +32,9 @@ function App() {
           )
         ) : (
           <div className="flex justify-center item-center">
-            <div className=" flex-col h-svh flex gap-1 justify-center items-center">
+            <div className=" flex-col text-xs h-svh flex gap-1.5 justify-center items-center">
               <Loader2 />
+              Loading Profile
             </div>
           </div>
         )}

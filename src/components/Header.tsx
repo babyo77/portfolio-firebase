@@ -35,14 +35,14 @@ const Header: React.FC<HeaderProps> = ({
         <Button
           variant={"ghost"}
           onClick={() => window.open(twitter)}
-          className="px-2.5"
+          className="px-2"
         >
           <FaXTwitter className="h-4 w-4" />
         </Button>
         <Button
           variant={"ghost"}
           onClick={() => window.open(github)}
-          className="px-2.5"
+          className="px-2"
         >
           <LuGithub className="h-4 w-4" />
         </Button>
@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({
           onClick={() =>
             window.open("https://www.npmjs.com/~babyo77") || leetCode
           }
-          className="px-2.5"
+          className="px-2"
         >
           <ImNpm className="h-4 w-4" />
         </Button>

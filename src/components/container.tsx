@@ -6,9 +6,15 @@ interface ProjectProp {
   project: ProjectProps[];
   techStack: string[];
   discord: string;
+  bio: string;
 }
 
-const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
+const Container: React.FC<ProjectProp> = ({
+  project,
+  techStack,
+  discord,
+  bio,
+}) => {
   const lanyard = useLanyard({
     userId: String(discord),
   });
@@ -16,8 +22,8 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
   return (
     <div className=" container flex flex-col  space-y-2 ">
       <article>
-        <div className="pt-4 hidden">
-          <h2 className="font-mono text-lg tracking-tighter ">tech-stack</h2>
+        <div className="py-4 font-normal ">
+          <h2 className=" text-sm ">{bio}</h2>
         </div>
         <div className="mt-4 mb-1 hidden  items-center gap-1 flex-wrap ">
           {techStack.map((tech, id) => (
@@ -31,9 +37,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
           ))}
         </div>
         <div>
-          <h2 className="font-mono text-lg tracking-tighter pb-4 pt-2">
-            Projects
-          </h2>
+          <h2 className="text-lg  font-semibold pb-2 pt-2">Projects 🗂️</h2>
         </div>
 
         {!project ? (
@@ -55,7 +59,7 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
           </ul>
         )}
         {lanyard.data && (
-          <div className=" flex border borer-zinc-800 bg-neutral-800/5 text-zinc-300  items-center rounded-sm p-2 pt-2.5 mt-4">
+          <div className=" flex borer-zinc-800 bg-neutral-800/5 text-zinc-300  items-center rounded-sm mt-4">
             <div className="h-14 w-20 relative  rounded-sm ">
               <img
                 className="h-14 w-14 object-cover  rounded-sm"
@@ -97,11 +101,12 @@ const Container: React.FC<ProjectProp> = ({ project, techStack, discord }) => {
               <p className="font-medium text-zinc-100">
                 {lanyard.data.data.activities[0]?.name || "Currently offline"}
               </p>
-              <p className="dark:text-zinc-300">
-                {lanyard.data.data.activities[0]?.state}
-              </p>
+
               <p className="dark:text-zinc-300">
                 {lanyard.data.data.activities[0]?.details}
+              </p>
+              <p className="dark:text-zinc-300">
+                {lanyard.data.data.activities[0]?.state}
               </p>
               {/* <p className="text-zinc-300 text-[.5rem]">
                 {Number(
