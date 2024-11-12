@@ -19,6 +19,7 @@ interface User {
   projects: ProjectProps[];
   github: string;
   twitter: string;
+  image: string;
   friends: string[];
 }
 

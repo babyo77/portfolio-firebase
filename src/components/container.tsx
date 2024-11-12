@@ -60,7 +60,7 @@ const Container: React.FC<ProjectProp> = ({
         )}
         {lanyard.data && (
           <div className=" flex borer-zinc-800 bg-neutral-800/5 text-zinc-300  items-center rounded-sm mt-4">
-            <div className="h-14 w-20 relative  rounded-sm ">
+            <div className="h-14 w-[4.5rem] relative  rounded-sm ">
               <img
                 className="h-14 w-14 object-cover  rounded-sm"
                 src={
@@ -80,15 +80,6 @@ const Container: React.FC<ProjectProp> = ({
                           .pop()}`
                     : `https://cdn.discordapp.com/app-assets/${lanyard?.data?.data?.activities[0]?.application_id}/${lanyard?.data?.data?.activities[0]?.assets?.large_image}.png`
                 }
-                onError={(e) =>
-                  (e.currentTarget.src =
-                    "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png")
-                }
-                alt="discord"
-              />
-              <img
-                className="h-4 w-4  border-2 border-neutral-800 rounded-full right-2 max-md:right-1  -bottom-0.5 z-20 absolute object-cover"
-                src={`https://cdn.discordapp.com/app-assets/${lanyard.data.data.activities[0]?.application_id}/${lanyard.data.data.activities[0]?.assets?.small_image}.png`}
                 onError={(e) =>
                   (e.currentTarget.src =
                     "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png")

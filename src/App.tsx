@@ -15,6 +15,7 @@ function App() {
               <main className=" fade-in py-8">
                 <Header
                   name={Details?.name}
+                  image={Details.image}
                   username={Details?.username}
                   story={Details?.story}
                   github={Details.github}
