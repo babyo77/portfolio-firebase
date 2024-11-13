@@ -1,7 +1,7 @@
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { Container, Header, ThemeProvider } from "./components";
-import { Loader2 } from "./components/Loader";
 import { useGetDetailsQuery } from "./store/detailsApi";
+import { Emoji } from "./components/Emoji";
 
 function App() {
   const { data: Details } = useGetDetailsQuery();
@@ -33,8 +33,8 @@ function App() {
           )
         ) : (
           <div className="flex justify-center item-center">
-            <div className=" flex-col text-xs h-svh flex gap-1.5 justify-center items-center">
-              <Loader2 />
+            <div className=" flex-col text-xs h-svh flex gap-2 justify-center items-center">
+              <Emoji className=" text-4xl" />
               Loading Profile
             </div>
           </div>
