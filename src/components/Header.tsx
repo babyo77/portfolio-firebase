@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
   return (
     <header className=" flex justify-between py-3 z-10  items-center container w-full backdrop-blur-md">
-      <div className=" flex items-center gap-1.5">
+      <div className=" flex items-center gap-1.5 px-2">
         <img
           src="/gradient.webp"
           className=" absolute opacity-50 left-0 md:left-1/2 -z-10 -translate-x-1/2 lg:scale-100 object-cover -top-8 w-full"

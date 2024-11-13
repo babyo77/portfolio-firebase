@@ -22,7 +22,7 @@ const Container: React.FC<ProjectProp> = ({
   return (
     <div className=" container flex flex-col  space-y-2 ">
       <article>
-        <div className="py-4 font-normal ">
+        <div className="py-4 font-normal px-2 ">
           <h2 className=" text-sm ">{bio}</h2>
         </div>
         <div className="mt-4 mb-1 hidden  items-center gap-1 flex-wrap ">
@@ -37,7 +37,7 @@ const Container: React.FC<ProjectProp> = ({
           ))}
         </div>
         <div>
-          <h2 className="text-lg  font-semibold pb-2 pt-2">Projects 🗂️</h2>
+          <h2 className="text-lg px-2  font-semibold pb-2 pt-2">Projects 🗂️</h2>
         </div>
 
         {!project ? (
@@ -45,7 +45,7 @@ const Container: React.FC<ProjectProp> = ({
             <Loader />
           </div>
         ) : (
-          <ul className="space-y-3 py-0.5 pb-2 flex flex-col ">
+          <ul className="space-y-3 px-2 py-0.5 pb-2 flex flex-col ">
             {project.map((data, id) => (
               <Projects
                 key={id}
@@ -59,7 +59,7 @@ const Container: React.FC<ProjectProp> = ({
           </ul>
         )}
         {lanyard.data && (
-          <div className=" flex borer-zinc-800 bg-neutral-800/5 text-zinc-300  items-center rounded-sm mt-4">
+          <div className=" p-2 border border-white/5 flex bg-black/40 text-zinc-300  items-center rounded-sm mt-4">
             <div className="h-14 max-md:w-20 w-[4.5rem] relative  rounded-sm ">
               <img
                 className="h-14 w-14 object-cover  rounded-sm"
@@ -109,9 +109,9 @@ const Container: React.FC<ProjectProp> = ({
             </div>
           </div>
         )}
-        <div className="mt-2  rounded-sm">
+        <div className="mt-2 rounded-sm border border-white/5">
           {/* <p className="mb-2 font-medium text-base">Listening To</p> */}
-          {/* <a
+          <a
             href="https://napster-drx.vercel.app/embed/user/4e80b34b-6eb4-4ac4-9bff-73011df25012"
             target="_blank"
             rel="noopener noreferrer"
@@ -126,7 +126,7 @@ const Container: React.FC<ProjectProp> = ({
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
             ></iframe>
-          </a> */}
+          </a>
         </div>
       </article>
       <Footer />
