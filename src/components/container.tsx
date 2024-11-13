@@ -60,7 +60,7 @@ const Container: React.FC<ProjectProp> = ({
         )}
         {lanyard.data && (
           <div className=" flex borer-zinc-800 bg-neutral-800/5 text-zinc-300  items-center rounded-sm mt-4">
-            <div className="h-14 w-[4.5rem] relative  rounded-sm ">
+            <div className="h-14 max-md:w-20 w-[4.5rem] relative  rounded-sm ">
               <img
                 className="h-14 w-14 object-cover  rounded-sm"
                 src={
