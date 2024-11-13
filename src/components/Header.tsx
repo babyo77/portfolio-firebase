@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 
 import { ImNpm } from "react-icons/im";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Emoji } from "./Emoji";
 interface HeaderProps {
   name: string;
   story: string[];
@@ -37,10 +38,13 @@ const Header: React.FC<HeaderProps> = ({
         </Avatar>
         <div className="cursor-pointer flex flex-col">
           <div className="flex flex-col">
-            <span className=" text-lg font-bold tracking-wide">{name}</span>
+            <p>
+              <span className=" text-lg font-bold tracking-wide">{name}</span>
+              <Emoji className=" text-lg" />
+            </p>
             <a
               href="mailto:devisantosh504@gmail.com"
-              className="text-xs ml-0.5 text-zinc-400"
+              className="text-xs ml-0.5 hover:text-zinc-100 text-zinc-400"
             >
               Email
             </a>

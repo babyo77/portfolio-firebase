@@ -12,7 +12,7 @@ const Projects: React.FC<ProjectProps> = ({
   return (
     <li>
       <a
-        className="flex flex-col group transition-all duration-300 space-y-1.5 !no-underline"
+        className="flex  hover:opacity-80 flex-col group transition-all duration-300 space-y-1.5 !no-underline"
         href={link}
         target="_blank"
       >
