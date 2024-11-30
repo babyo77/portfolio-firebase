@@ -20,7 +20,7 @@ const Projects: React.FC<ProjectProps> = ({
           <span className="font-medium">{title}</span>
           {users && (
             <Badge
-              variant={users !== "archived" ? "default" : "secondary"}
+              variant={"secondary"}
               className="ml-2 tracking-tighter no-underline rounded-lg px-2 py-0.5  font-mono text-[.7rem]  leading-tight "
             >
               {users}
