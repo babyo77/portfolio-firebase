@@ -1,30 +1,16 @@
-# React + TypeScript + Vite
+# Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a personal portfolio website built with React, Firebase, and various modern web technologies. The site highlights my projects, skills, and experience, with dynamic content powered by Firebase.
 
-Currently, two official plugins are available:
+## Features
+- Dynamic content fetched from Firebase
+- User authentication using Firebase Auth
+- Form validation with React Hook Form and Zod
+- Responsive and accessible design with Radix UI and Tailwind CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Tech Stack
+- **Frontend:** React, TypeScript, React Query, Tailwind CSS
+- **Backend:** Firebase (Database)
+- **State Management:** Redux Toolkit
+- **UI Components:** Radix UI, Lucide React, React Icons
+- **Form Handling:** React Hook Form, Zod
