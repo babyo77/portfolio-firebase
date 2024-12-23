@@ -109,6 +109,7 @@ const Container: React.FC<ProjectProp> = ({
             </div>
           </div>
         )}
+{lanyard?.data?.data?.activities?.length == 0 && (
         <div className="mt-2 rounded-sm border border-white/5">
           {/* <p className="mb-2 font-medium text-base">Listening To</p> */}
           <a
@@ -128,6 +129,7 @@ const Container: React.FC<ProjectProp> = ({
             ></iframe>
           </a>
         </div>
+)}
       </article>
       <Footer />
     </div>
