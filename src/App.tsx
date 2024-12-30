@@ -35,7 +35,7 @@ function App() {
           <div className="flex justify-center item-center">
             <div className=" flex-col text-xs h-svh flex gap-2 justify-center items-center">
               <Emoji className=" text-4xl" />
-              Hold on, fetching data...
+              Hold on babe, fetching data...
             </div>
           </div>
         )}
