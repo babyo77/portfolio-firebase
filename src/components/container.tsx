@@ -89,7 +89,7 @@ const Container: React.FC<ProjectProp> = ({
             </div>
 
             <div className="w-full  text-xs items-center leading-tight">
-              <p className="font-medium text-zinc-100">
+              <p className="font-medium text-zinc-100 max-w-md truncate">
                 {lanyard.data.data.activities[0]?.name || "Currently offline"}
               </p>
 
