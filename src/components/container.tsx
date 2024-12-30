@@ -58,27 +58,27 @@ const Container: React.FC<ProjectProp> = ({
             ))}
           </ul>
         )}
-        {lanyard.data && (
-          <div className=" p-2 border border-white/5 flex bg-black/40 text-zinc-300  items-center rounded-sm mt-4">
-            <div className="h-14 max-md:w-20 w-[4.5rem] relative  rounded-sm ">
+        <div className=" h-4"></div>
+        {lanyard.data?.data.activities.map((activity) => (
+          <div
+            key={activity.id}
+            className=" p-2 border border-white/10 flex bg-black/30 text-zinc-300  items-center rounded-md mt-2"
+          >
+            <div className="h-14 max-md:w-20 w-[4.5rem] relative rounded-sm ">
               <img
                 className="h-14 w-14 object-cover  rounded-sm"
                 src={
-                  lanyard?.data?.data.activities[0]?.assets?.large_image?.startsWith(
-                    "mp:external"
-                  )
-                    ? lanyard?.data?.data.activities[0]?.assets?.large_image?.includes(
-                        "%3Furl%3Dhttps"
-                      )
+                  activity?.assets?.large_image?.startsWith("mp:external")
+                    ? activity?.assets?.large_image?.includes("%3Furl%3Dhttps")
                       ? `https://wsrv.nl/?url=${decodeURIComponent(
-                          lanyard?.data?.data?.activities[0]?.assets?.large_image?.match(
+                          activity?.assets?.large_image?.match(
                             /%3Furl%3D(https%3A%2F%2Flh3\.googleusercontent\.com%2F[^/]+)/ // Match until the first '/' after 'lh3.googleusercontent.com/'
                           )?.[1] || ""
                         )}`
-                      : `https://${lanyard?.data?.data?.activities[0]?.assets?.large_image
+                      : `https://${activity?.assets?.large_image
                           .split("/https/")
                           .pop()}`
-                    : `https://cdn.discordapp.com/app-assets/${lanyard?.data?.data?.activities[0]?.application_id}/${lanyard?.data?.data?.activities[0]?.assets?.large_image}.png`
+                    : `https://cdn.discordapp.com/app-assets/${activity?.application_id}/${activity?.assets?.large_image}.png`
                 }
                 onError={(e) =>
                   (e.currentTarget.src =
@@ -90,25 +90,23 @@ const Container: React.FC<ProjectProp> = ({
 
             <div className="w-full  text-xs items-center leading-tight">
               <p className="font-medium text-zinc-100">
-                {lanyard.data.data.activities[0]?.name || "Currently offline"}
+                {activity?.name || "Currently offline"}
               </p>
 
               <p className="dark:text-zinc-300 max-w-md truncate">
-                {lanyard.data.data.activities[0]?.details}
+                {activity?.details}
               </p>
-              <p className="dark:text-muted-foreground">
-                {lanyard.data.data.activities[0]?.state}
-              </p>
+              <p className="dark:text-muted-foreground">{activity?.state}</p>
               {/* <p className="text-zinc-300 text-[.5rem]">
-                {Number(
-                  100 -
-                    (100 * (0 - new Date().getTime())) /
-                      lanyard.data.data.activities[0].timestamps?.start
-                )}
-              </p> */}
+              {Number(
+                100 -
+                  (100 * (0 - new Date().getTime())) /
+                    activity.timestamps?.start
+              )}
+            </p> */}
             </div>
           </div>
-        )}
+        ))}
       </article>
       <Footer />
     </div>
