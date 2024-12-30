@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({
   leetCode,
 }) => {
   return (
-    <header className=" flex justify-between py-3 z-10  items-center container w-full backdrop-blur-md">
+    <header className=" flex justify-between z-10  items-center container w-full backdrop-blur-md">
       <div className=" flex items-center gap-1.5 px-2">
         <img
           src="/gradient.webp"
