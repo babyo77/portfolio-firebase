@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({
           className=" absolute opacity-50 left-0 md:left-1/2 -z-10 -translate-x-1/2 lg:scale-100 object-cover -top-8 w-full"
           alt=""
         />
-        <Avatar className=" size-14 border ">
+        <Avatar className=" size-14 border border-white/15 ">
           <AvatarImage
             className=" object-cover object-center"
             src={image || "/favicon.webp"}
@@ -44,9 +44,9 @@ const Header: React.FC<HeaderProps> = ({
             </p>
             <a
               href="mailto:devisantosh504@gmail.com"
-              className="text-xs ml-0.5 hover:text-zinc-100 text-zinc-400"
+              className="text-xs ml-0.5 hover:text-zinc-100 text-zinc-300"
             >
-              Email
+              777
             </a>
           </div>
         </div>
