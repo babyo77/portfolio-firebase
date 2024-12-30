@@ -94,7 +94,7 @@ const Container: React.FC<ProjectProp> = ({
                 {activity?.name || "Currently offline"}
               </p>
 
-              <p className="dark:text-zinc-300 max-md:max-w-xs max-w-md truncate">
+              <p className="dark:text-zinc-300 max-md:max-w-[200px] max-w-md truncate">
                 {activity?.details}
               </p>
               <p className="dark:text-muted-foreground">{activity?.state}</p>
