@@ -20,9 +20,9 @@ const Container: React.FC<ProjectProp> = ({
   });
 
   return (
-    <div className=" container flex flex-col  space-y-2 ">
+    <div className=" container flex flex-col ">
       <article>
-        <div className="py-4 font-normal px-2 ">
+        <div className="py-4 pb-0 font-normal px-2 ">
           <h2 className=" text-sm ">{bio}</h2>
         </div>
         <div className="mt-4 mb-1 hidden  items-center gap-1 flex-wrap ">
@@ -37,7 +37,9 @@ const Container: React.FC<ProjectProp> = ({
           ))}
         </div>
         <div>
-          <h2 className="text-lg px-2  font-semibold pb-2 pt-2">Projects 🗂️</h2>
+          <h2 className="text-lg px-2  font-semibold py-3 pb-1.5">
+            Projects 🗂️
+          </h2>
         </div>
 
         {!project ? (
@@ -58,7 +60,6 @@ const Container: React.FC<ProjectProp> = ({
             ))}
           </ul>
         )}
-        <div className=" h-4"></div>
         {lanyard.data?.data.activities.map((activity) => (
           <div
             key={activity.id}
