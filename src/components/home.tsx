@@ -1,14 +1,14 @@
 "use client";
 import { UserProfile } from "@/app/page";
-import React, { useState } from "react";
 import { LanyardResponse } from "react-use-lanyard";
 import OptimizedImage from "@/components/image";
 import ActivityCard from "../components/activity-card";
 import Link from "next/link";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiGithub, SiInstagram } from "react-icons/si";
-import { cubicBezier, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { itemVariants } from "@/lib/utils";
+import { useState } from "react";
 
 function Home({
   response,
@@ -45,10 +45,10 @@ function Home({
       },
     },
   };
-  const [transitionComplete, setTransitionComplete] = useState(false);
+  const [transitionComplete] = useState(true);
   return (
     <>
-      <Transition onComplete={() => setTransitionComplete(true)} />
+      {/* <Transition onComplete={() => setTransitionComplete(true)} /> */}
 
       <motion.main
         className="px-6 py-8 max-w-[600px] mx-auto space-y-4"
@@ -101,15 +101,11 @@ function Home({
           <h2 className="font-semibold text-xl">Projects</h2>
           <div className="flex flex-col mt-2 divide-y divide-zinc-900">
             {user?.projects.map((project) => (
-              <motion.div
-                key={project?.link}
-                variants={itemVariants}
-                whileHover={{ x: 4, transition: { duration: 0.2 } }}
-              >
+              <motion.div key={project?.link} variants={itemVariants}>
                 <Link
                   href={project?.link}
                   target="_blank"
-                  className="group block px-4 py-3 -mx-4 rounded-md text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-neutral-200"
+                  className="group block px-4 pl-2 py-3 -mx-2 rounded-md text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-neutral-200"
                   rel="noreferrer noopener"
                 >
                   <p className="text-sm text-neutral-100 font-medium">
@@ -153,30 +149,30 @@ function Home({
     </>
   );
 }
-function Transition({ onComplete }: { onComplete: () => void }) {
-  return (
-    <motion.div
-      className="z-10 h-screen w-screen fixed bg-[#0a0a0afd] top-0 left-0 flex flex-row justify-center items-center"
-      initial={{ top: 0, opacity: 1 }}
-      animate={{ top: "-100%", opacity: 0 }}
-      transition={{ delay: 1, ease: cubicBezier(0.65, 0, 0.35, 1) }}
-      onAnimationComplete={onComplete}
-    >
-      {[0.1, 0.15, 0.2, 0.25].map((delay, i) => (
-        <motion.div
-          key={i}
-          className="bg-white h-screen w-[25%] relative top-0"
-          initial={{ top: "100%" }}
-          animate={{ top: "-100%" }}
-          transition={{
-            duration: 0.75,
-            delay,
-            ease: cubicBezier(0.65, 0, 0.35, 1),
-          }}
-        />
-      ))}
-    </motion.div>
-  );
-}
+// function Transition({ onComplete }: { onComplete: () => void }) {
+//   return (
+//     <motion.div
+//       className="z-10 h-screen w-screen fixed bg-[#0a0a0afd] top-0 left-0 flex flex-row justify-center items-center"
+//       initial={{ top: 0, opacity: 1 }}
+//       animate={{ top: "-100%", opacity: 0 }}
+//       transition={{ delay: 1, ease: cubicBezier(0.65, 0, 0.35, 1) }}
+//       onAnimationComplete={onComplete}
+//     >
+//       {[0.1, 0.15, 0.2, 0.25].map((delay, i) => (
+//         <motion.div
+//           key={i}
+//           className="bg-white h-screen w-[25%] relative top-0"
+//           initial={{ top: "100%" }}
+//           animate={{ top: "-100%" }}
+//           transition={{
+//             duration: 0.75,
+//             delay,
+//             ease: cubicBezier(0.65, 0, 0.35, 1),
+//           }}
+//         />
+//       ))}
+//     </motion.div>
+//   );
+// }
 
 export default Home;
