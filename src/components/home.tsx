@@ -19,8 +19,8 @@ function Home({
 }) {
   const user = response;
   const userLinks = [
-    { href: user?.github, icon: SiGithub, label: "GitHub" },
     { href: user?.twitter, icon: FaXTwitter, label: "Twitter" },
+    { href: user?.github, icon: SiGithub, label: "GitHub" },
     { href: user?.insta, icon: SiInstagram, label: "Instagram" },
   ];
 
@@ -132,11 +132,10 @@ function Home({
                     key={index}
                     href={href}
                     rel="noreferrer noopener"
-                    className="inline-flex items-center gap-1 font-medium text-xs transition-colors hover:text-neutral-200"
+                    className="inline-flex items-center gap-1 font-medium text-xs transition-colors text-neutral-400 hover:text-neutral-200"
                     variants={itemVariants}
-                    whileHover={{ scale: 1.1 }}
                   >
-                    <Icon className="size-4">
+                    <Icon className="size-3.5">
                       <title>{label}</title>
                     </Icon>
                     {label}
