@@ -55,7 +55,7 @@ export default function ActivityCard({
                 }
                 onError={(e) => {
                   e.currentTarget.src =
-                    "https://i.pinimg.com/originals/36/c6/e6/36c6e6f12202433e5030cc9fd5de71fa.gif";
+                    "https://i.pinimg.com/736x/b1/ca/d0/b1cad057c645ee9a5755304b99b37117.jpg";
                 }}
               />
             </div>
