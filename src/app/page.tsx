@@ -4,6 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { SiGithub, SiInstagram } from "react-icons/si";
 import api from "../../lib/api";
 import ActivityCard from "../components/activity-card";
+import { LanyardResponse } from "react-use-lanyard";
 
 interface DateObject {
   seconds: number;
@@ -43,8 +44,14 @@ export default async function Home() {
     "https://details-alpha.vercel.app",
     { next: { revalidate: 36000 } }
   );
+
   if (!response.data)
     return <div className=" font-mono p-4">upstream error</div>;
+
+  const activity = await api.get<LanyardResponse | undefined>(
+    `https://api.lanyard.rest/v1/users/${response.data?.discord}`
+  );
+
   const user = response.data;
   const userLinks = [
     { href: user?.github, icon: SiGithub, label: "GitHub" },
@@ -98,7 +105,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <ActivityCard userId={user?.discord} />
+      <ActivityCard userId={user?.discord} initialData={activity.data} />
       <div className="flex border-t pt-4 gap-2 border-neutral-800">
         <div className="flex items-center gap-4">
           {userLinks.map(
