@@ -41,7 +41,7 @@ interface UserProfile {
 export default async function Home() {
   const response = await api.get<UserProfile>(
     "https://details-alpha.vercel.app",
-    {}
+    { next: { revalidate: 36000 } }
   );
   if (!response.data) return <div className=" font-mono">upstream error</div>;
   const user = response.data;
