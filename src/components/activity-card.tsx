@@ -51,7 +51,7 @@ export default function ActivityCard({ userId }: { userId: string }) {
             </div>
             <div>
               <h2 className="font-semibold text-xs">{activity.name}</h2>
-              <p className=" text-neutral-100/90 font-medium text-xs max-w-md truncate ">
+              <p className=" text-neutral-100/90 font-medium text-xs max-w-[300px] md:max-w-md truncate ">
                 {activity.details}
               </p>
               <p className="text-neutral-100/70 font-medium  text-xs ">
