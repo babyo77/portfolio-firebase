@@ -49,7 +49,10 @@ export default async function Home() {
     return <div className=" font-mono p-4">upstream error</div>;
 
   const activity = await api.get<LanyardResponse | undefined>(
-    `https://api.lanyard.rest/v1/users/${response.data?.discord}`
+    `https://api.lanyard.rest/v1/users/${response.data?.discord}`,
+    {
+      cache: "no-cache",
+    }
   );
 
   const user = response.data;
