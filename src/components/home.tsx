@@ -8,7 +8,8 @@ import { FaXTwitter } from "react-icons/fa6";
 import { SiGithub, SiInstagram } from "react-icons/si";
 import { motion } from "framer-motion";
 import { itemVariants } from "@/lib/utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Clarity from "@microsoft/clarity";
 
 function Home({
   response,
@@ -46,6 +47,10 @@ function Home({
     },
   };
   const [transitionComplete] = useState(true);
+  useEffect(() => {
+    Clarity.init("pmnbotinpz");
+  }, []);
+
   return (
     <>
       {/* <Transition onComplete={() => setTransitionComplete(true)} /> */}
