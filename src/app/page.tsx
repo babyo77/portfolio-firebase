@@ -43,7 +43,8 @@ export default async function Home() {
     "https://details-alpha.vercel.app",
     { next: { revalidate: 36000 } }
   );
-  if (!response.data) return <div className=" font-mono">upstream error</div>;
+  if (!response.data)
+    return <div className=" font-mono p-4">upstream error</div>;
   const user = response.data;
   const userLinks = [
     { href: user?.github, icon: SiGithub, label: "GitHub" },
