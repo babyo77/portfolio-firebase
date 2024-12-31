@@ -109,7 +109,7 @@ function Home({
                 <Link
                   href={project?.link}
                   target="_blank"
-                  className="group block px-4 pl-2 py-3 -mx-2 rounded-md text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-neutral-200"
+                  className="group block px-4 py-3 -mx-4 rounded-md text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-neutral-200"
                   rel="noreferrer noopener"
                 >
                   <p className="text-sm text-neutral-100 font-medium">
