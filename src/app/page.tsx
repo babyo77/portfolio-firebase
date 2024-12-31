@@ -42,7 +42,7 @@ interface UserProfile {
 export default async function Home() {
   const response = await api.get<UserProfile>(
     "https://details-alpha.vercel.app",
-    { next: { revalidate: 36000 } }
+    { next: { revalidate: 60 } }
   );
 
   if (!response.data)
