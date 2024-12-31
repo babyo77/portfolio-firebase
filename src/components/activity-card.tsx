@@ -1,15 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { useLanyard } from "react-use-lanyard";
+import { LanyardResponse, useLanyard } from "react-use-lanyard";
 
-export default function ActivityCard({ userId }: { userId: string }) {
+export default function ActivityCard({
+  userId,
+  initialData,
+}: {
+  userId: string;
+  initialData: LanyardResponse | undefined;
+}) {
   const { data } = useLanyard({
     userId,
   });
 
-  const activities = data?.data?.activities;
-  if (!data) {
+  const activities = data?.data?.activities || initialData?.data.activities;
+  if (!activities) {
     return (
       <p className="font-mono opacity-80 text-xs leading-tight tracking-tight">
         Loading activity <span className="dot dot-1">.</span>
@@ -51,7 +57,7 @@ export default function ActivityCard({ userId }: { userId: string }) {
             </div>
             <div>
               <h2 className="font-semibold text-xs">{activity.name}</h2>
-              <p className=" text-neutral-100/90 font-medium text-xs max-w-[300px] md:max-w-md truncate ">
+              <p className=" text-neutral-100/90 font-medium text-xs max-w-[250px] md:max-w-md truncate ">
                 {activity.details}
               </p>
               <p className="text-neutral-100/70 font-medium  text-xs ">
