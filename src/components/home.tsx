@@ -99,7 +99,7 @@ function Home({
 
         <motion.div variants={itemVariants}>
           <h2 className="font-semibold text-xl">Projects</h2>
-          <div className="flex flex-col mt-2 divide-y divide-zinc-900">
+          <div className="flex flex-col mt-2 -mb-1 divide-y divide-zinc-900">
             {user?.projects.map((project) => (
               <motion.div key={project?.link} variants={itemVariants}>
                 <Link
