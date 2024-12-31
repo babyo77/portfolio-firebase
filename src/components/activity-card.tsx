@@ -1,8 +1,8 @@
 "use client";
-
-import Image from "next/image";
 import { LanyardResponse, useLanyard } from "react-use-lanyard";
-
+import OptimizedImage from "./image";
+import { motion } from "framer-motion";
+import { itemVariants } from "@/lib/utils";
 export default function ActivityCard({
   userId,
   initialData,
@@ -28,14 +28,18 @@ export default function ActivityCard({
   return (
     <>
       {activities?.map((activity) => (
-        <div key={activity.id} className="w-full max-w-2xl mx-auto">
+        <motion.div
+          variants={itemVariants}
+          key={activity.id}
+          className="w-full max-w-2xl mx-auto"
+        >
           <div className="rounded-lg flex py-2 pl-2 -mx-1 bg-neutral-800/40 items-center gap-2">
             <div className=" h-14 w-auto aspect-square rounded-[0.25rem] overflow-hidden">
-              <Image
+              <OptimizedImage
                 height={5000}
                 width={5000}
                 alt={activity.name}
-                className="  h-full w-full object-cover "
+                className="  h-full w-full rounded-[0.25rem] object-cover "
                 src={
                   activity?.assets?.large_image?.startsWith("mp:external")
                     ? activity?.assets?.large_image?.includes("%3Furl%3Dhttps")
@@ -65,7 +69,7 @@ export default function ActivityCard({
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </>
   );
