@@ -113,7 +113,7 @@ function Home({
                   className="group block px-4 pl-2 py-3 -mx-2 rounded-md text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-neutral-200"
                   rel="noreferrer noopener"
                 >
-                  <p className="text-sm text-neutral-100 font-medium">
+                  <p className="text-sm underline underline-offset-2 text-neutral-100 font-medium">
                     {project?.title}
                   </p>
                   <p className="text-sm">{project?.desc}</p>
