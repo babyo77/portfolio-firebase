@@ -1,12 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
   Select,
@@ -237,7 +231,7 @@ const ComprehensiveGiftCalculator = () => {
   };
 
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="flex h-auto min-h-screen justify-center items-center">
       <Card className="w-full border-none mx-auto max-w-2xl">
         <CardHeader>
           <CardTitle className=" text-6xl">Marriage Gift Calculator</CardTitle>
@@ -370,12 +364,13 @@ const ComprehensiveGiftCalculator = () => {
             )}
           </div>
         </CardContent>
-        <CardFooter>
-          <Link href={"/"} className="  text-muted-foreground/50">
-            Made for fun, we don&apos;t support dowry
-          </Link>
-        </CardFooter>
       </Card>
+      <Link
+        href={"/"}
+        className="  fixed bottom-5 text-xs max-md:bottom-1 text-muted-foreground/50"
+      >
+        Made for fun, we don&apos;t support dowry
+      </Link>
     </div>
   );
 };
