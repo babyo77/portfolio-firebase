@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import Analytics from "@/components/analytics";
 const interDisplay = localFont({
   src: [
     {
@@ -97,7 +98,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${interDisplay.className} dark `}>{children}</body>
+      <body className={`${interDisplay.className} dark `}>
+        <Analytics />
+        {children}
+      </body>
     </html>
   );
 }
