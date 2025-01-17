@@ -239,7 +239,9 @@ const ComprehensiveGiftCalculator = () => {
         <CardContent>
           <div className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="netWorth">Boys Net Worth</Label>
+              <Label htmlFor="netWorth">
+                Boy&apos;s / Girl&apos;s Net Worth
+              </Label>
               <Select value={netWorthRange} onValueChange={setNetWorthRange}>
                 <SelectTrigger id="netWorth">
                   <SelectValue placeholder="Select Net Worth Range" />
