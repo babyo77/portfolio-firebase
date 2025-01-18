@@ -16,8 +16,7 @@ export default async function Page({ searchParams }: Props) {
   const youtubeMatch = youtubeRegex.exec(url);
 
   if (youtubeMatch) {
-    const videoId = youtubeMatch[2];
-    redirect(`youtube://www.youtube.com/watch?v=${videoId}`);
+    redirect(`youtube://${url.replace("http://", "")}`);
   }
 
   const instagramRegex =
@@ -25,8 +24,7 @@ export default async function Page({ searchParams }: Props) {
   const instagramMatch = instagramRegex.exec(url);
 
   if (instagramMatch) {
-    const postId = instagramMatch[2];
-    redirect(`instagram://www.instagram.com/p/${postId}`);
+    redirect(`instagram://${url.replace("http://", "")}`);
   }
 
   redirect(url);
