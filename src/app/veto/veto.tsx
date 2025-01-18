@@ -384,11 +384,11 @@ const ComprehensiveGiftCalculator = () => {
               <div className="mt-6 relative">
                 <Share
                   onClick={handleShare}
-                  className=" absolute right-5 cursor-pointer bottom-5"
+                  className=" absolute right-5 max-md:size-6 cursor-pointer bottom-5"
                 />
                 {calculateGift() === "high_net_worth" ? (
                   <Alert>
-                    <AlertDescription className="text-center text-5xl font-medium">
+                    <AlertDescription className="text-center max-md:text-4xl text-5xl font-medium">
                       जो आप की इच्छा 🙏
                       <div className="text-sm mt-2">
                         For such high net worth individuals, the gift value is
@@ -401,7 +401,7 @@ const ComprehensiveGiftCalculator = () => {
                     <div className="text-lg font-bold">
                       Suggested Gift Value{" "}
                     </div>
-                    <div className="text-5xl font-bold">
+                    <div className="text-5xl max-md:text-4xl font-bold">
                       {formatIndianCurrency(calculateGift())}
                     </div>
                     <div className="text-sm">
