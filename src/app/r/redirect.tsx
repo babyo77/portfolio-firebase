@@ -27,5 +27,5 @@ export default function Redirect({ url }: { url: string }) {
       window.location.href = url;
     }
   }, [url]);
-  return <div className="p-5">Redirecting to {redirectUrl}...</div>;
+  return <div className="p-5">Redirecting to {redirectUrl}</div>;
 }
