@@ -76,14 +76,16 @@ function Home({
             />
           </motion.div>
           <motion.div className="w-1/2 md:w-1/3 h-10" variants={itemVariants}>
-            <OptimizedImage
-              src={user?.gif}
-              height={5000}
-              width={5000}
-              alt="gif"
-              loading="eager"
-              className="object-cover rounded-none h-full object-center"
-            />
+            <Link href={"/777"} target="_blank">
+              <OptimizedImage
+                src={user?.gif}
+                height={5000}
+                width={5000}
+                alt="gif"
+                loading="eager"
+                className="object-cover rounded-none h-full object-center"
+              />
+            </Link>
           </motion.div>
         </motion.header>
 
