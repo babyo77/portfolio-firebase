@@ -422,7 +422,7 @@ const ComprehensiveGiftCalculator = () => {
         href={"/"}
         className="  fixed bottom-5 text-xs max-md:bottom-1 text-muted-foreground/50"
       >
-        Made for fun, we don&apos;t support dowry
+        Made for fun, I don&apos;t support dowry
       </Link>
     </div>
   );
