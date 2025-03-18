@@ -98,6 +98,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta
+        name="google-adsense-account"
+        content="ca-pub-3571368045542455"
+      ></meta>
       <body className={`${interDisplay.className} dark `}>
         <Analytics />
         {children}
