@@ -3,7 +3,7 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
-  name: "10May",
+  name: "Tanmay",
   about:
     "Full-stack developer who builds and ships products at lightning speed. Known for completing complex apps in days. Currently focused on Web3 and AI technology.",
   location: "Toronto, ON",
