@@ -9,17 +9,15 @@ import { DATA } from "@/data/resume";
 import { LanyardResponse } from "@/types/lanyard";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import dynamic from "next/dynamic";
 
 const BLUR_FADE_DELAY = 0.04;
 
-export default async function Page() {
-  const activity = await fetch(
-    `https://api.lanyard.rest/v1/users/497085547970560021`,
-    {
-      cache: "no-cache",
-      next: { revalidate: 60 }, // Revalidate every minute
-    }
-  ).then((res) => res.json() as Promise<LanyardResponse>);
+const ActivityCard = dynamic(() => import("@/components/ActivityCard"), {
+  ssr: false,
+});
+
+export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -37,41 +35,6 @@ export default async function Page() {
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
-              <BlurFade delay={BLUR_FADE_DELAY * 2}>
-                <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <span
-                    className={`size-2 rounded-full ${
-                      activity.data.discord_status === "online"
-                        ? "bg-green-500"
-                        : activity.data.discord_status === "idle"
-                        ? "bg-yellow-500"
-                        : activity.data.discord_status === "dnd"
-                        ? "bg-red-500"
-                        : "bg-gray-500"
-                    }`}
-                  />
-                  <span>
-                    {activity.data.discord_status === "online"
-                      ? "Online"
-                      : activity.data.discord_status === "idle"
-                      ? "Idle"
-                      : activity.data.discord_status === "dnd"
-                      ? "Do Not Disturb"
-                      : "Offline"}
-                    {activity.data.listening_to_spotify && (
-                      <>
-                        {" "}
-                        • Listening to {activity.data.spotify?.song} by{" "}
-                        {activity.data.spotify?.artist}
-                      </>
-                    )}
-                    {activity.data.activities.length > 0 &&
-                      !activity.data.listening_to_spotify && (
-                        <> • {activity.data.activities[0].name}</>
-                      )}
-                  </span>
-                </div>
-              </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
@@ -98,6 +61,15 @@ export default async function Page() {
           </Markdown>
         </BlurFade>
       </section>
+      <section id="about">
+        <BlurFade delay={BLUR_FADE_DELAY * 3}>
+          <h2 className="text-xl font-bold">What am i doing now ?</h2>
+        </BlurFade>
+        <BlurFade delay={BLUR_FADE_DELAY * 4}>
+          <ActivityCard userId="497085547970560021" initialData={undefined} />
+        </BlurFade>
+      </section>
+
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
