@@ -44,10 +44,10 @@ export default function ActivityCard({
   return (
     <>
       <section id="about">
-        <BlurFade delay={0.04 * 3}>
-          <h2 className="text-xl font-bold">Activity</h2>
+        <BlurFade delay={0.04 * 5}>
+          <h2 className="text-xl font-bold">What am i doing ?</h2>
         </BlurFade>
-        <BlurFade delay={0.04 * 4}>
+        <BlurFade delay={0.04 * 6}>
           {activities?.map((activity: any) => (
             <div key={activity.id} className="w-full  mx-auto">
               <div className="rounded-lg flex py-2 items-center gap-2">
