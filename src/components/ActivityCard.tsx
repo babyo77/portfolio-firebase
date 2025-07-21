@@ -45,7 +45,7 @@ export default function ActivityCard({
     <>
       <section id="about">
         <BlurFade delay={0.04 * 3}>
-          <h2 className="text-xl font-bold">What am i doing now ?</h2>
+          <h2 className="text-xl font-bold">Activity</h2>
         </BlurFade>
         <BlurFade delay={0.04 * 4}>
           {activities?.map((activity: any) => (
