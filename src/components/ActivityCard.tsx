@@ -37,46 +37,46 @@ export default function ActivityCard({
   });
 
   const activities = data?.data?.activities || initialData?.data.activities;
-  if (!activities) {
-    return (
-      <p className="font-mono opacity-80 text-xs leading-tight tracking-tight">
-        Loading activity <span className="dot dot-1">.</span>
-        <span className="dot dot-2">.</span>
-        <span className="dot dot-3">.</span>
-      </p>
-    );
-  }
-  console.log(activities);
+  if (!activities) return;
+
+  if (activities.length == 0) return;
 
   return (
     <>
-      {activities?.map((activity: any) => (
-        <div key={activity.id} className="w-full  mx-auto">
-          <div className="rounded-lg flex py-2 items-center gap-2">
-            <div className="h-14 w-auto aspect-square rounded-[0.25rem] overflow-hidden">
-              <Image
-                height={56}
-                width={56}
-                alt={activity.name}
-                className="h-full w-full rounded-[0.25rem] object-cover"
-                src={getActivityImageSrc(activity) || DEFAULT_IMAGE}
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = DEFAULT_IMAGE;
-                }}
-              />
+      <section id="about">
+        <BlurFade delay={0.04 * 3}>
+          <h2 className="text-xl font-bold">What am i doing now ?</h2>
+        </BlurFade>
+        <BlurFade delay={0.04 * 4}>
+          {activities?.map((activity: any) => (
+            <div key={activity.id} className="w-full  mx-auto">
+              <div className="rounded-lg flex py-2 items-center gap-2">
+                <div className="h-14 w-auto aspect-square rounded-[0.25rem] overflow-hidden">
+                  <Image
+                    height={56}
+                    width={56}
+                    alt={activity.name}
+                    className="h-full w-full rounded-[0.25rem] object-cover"
+                    src={getActivityImageSrc(activity) || DEFAULT_IMAGE}
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = DEFAULT_IMAGE;
+                    }}
+                  />
+                </div>
+                <div>
+                  <h2 className="font-semibold text-xs">{activity.name}</h2>
+                  <p className=" text-muted-foreground font-medium text-xs max-w-[250px] md:max-w-md truncate ">
+                    {activity.details}
+                  </p>
+                  <p className="text-muted-foreground font-medium  text-xs ">
+                    {activity.state}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h2 className="font-semibold text-xs">{activity.name}</h2>
-              <p className=" text-muted-foreground font-medium text-xs max-w-[250px] md:max-w-md truncate ">
-                {activity.details}
-              </p>
-              <p className="text-muted-foreground font-medium  text-xs ">
-                {activity.state}
-              </p>
-            </div>
-          </div>
-        </div>
-      ))}
+          ))}
+        </BlurFade>
+      </section>
     </>
   );
 }

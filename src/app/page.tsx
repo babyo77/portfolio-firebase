@@ -61,14 +61,8 @@ export default function Page() {
           </Markdown>
         </BlurFade>
       </section>
-      <section id="about">
-        <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold">What am i doing now ?</h2>
-        </BlurFade>
-        <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <ActivityCard userId="497085547970560021" initialData={undefined} />
-        </BlurFade>
-      </section>
+
+      <ActivityCard userId="497085547970560021" initialData={undefined} />
 
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
