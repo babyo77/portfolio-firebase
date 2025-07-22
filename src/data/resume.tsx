@@ -155,28 +155,28 @@ export const DATA = {
     },
   ],
   projects: [
-    {
-      title: "Text-in-between",
-      href: "https://thumbnail.tanmay.xyz",
-      dates: "",
-      active: true,
-      description: "Create text-in-between thumbnail",
-      technologies: ["Next.js", "React", "TailwindCSS", "TypeScript"],
-      links: [
-        {
-          type: "Website",
-          href: "https://thumbnail.tanmay.xyz",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "GitHub",
-          href: "https://github.com/babyo77/Text-Thumbnail",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "/text-in-between.png",
-      video: "",
-    },
+    // {
+    //   title: "Text-in-between",
+    //   href: "https://thumbnail.tanmay.xyz",
+    //   dates: "",
+    //   active: true,
+    //   description: "Create text-in-between thumbnail",
+    //   technologies: ["Next.js", "React", "TailwindCSS", "TypeScript"],
+    //   links: [
+    //     {
+    //       type: "Website",
+    //       href: "https://thumbnail.tanmay.xyz",
+    //       icon: <Icons.globe className="size-3" />,
+    //     },
+    //     {
+    //       type: "GitHub",
+    //       href: "https://github.com/babyo77/Text-Thumbnail",
+    //       icon: <Icons.github className="size-3" />,
+    //     },
+    //   ],
+    //   image: "/text-in-between.png",
+    //   video: "",
+    // },
 
     {
       title: "PayCrypt",
