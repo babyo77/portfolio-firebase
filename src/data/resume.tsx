@@ -4,14 +4,12 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
   name: "Tanmay",
-  about:
-    "Full-stack developer who builds and ships products at lightning speed. Known for completing complex apps in days. Currently focused on Web3 and AI technology.",
+  about: "Interested in finance, programming and maths.",
   location: "Toronto, ON",
   website: "https://tanmay.xyz",
   url: "https://tanmay.xyz",
-  description: "Software Engineer. I love building things and helping people.",
-  summary:
-    "Full-stack developer who builds and ships products at lightning speed. Known for completing complex apps in days. Currently focused on Web3 and AI technology.",
+  description: "I build high-performance systems that don't crash at 3 AM.",
+  summary: "Interested in finance, programming and maths.",
   avatarUrl:
     "https://i.pinimg.com/736x/fb/4a/9b/fb4a9bf8f08402caaaf3d416e3f55688.jpg",
   skills: [
