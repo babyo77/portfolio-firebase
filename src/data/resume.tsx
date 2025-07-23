@@ -10,8 +10,7 @@ export const DATA = {
   url: "https://tanmay.xyz",
   description: "I build high-performance systems that don't crash at 3 AM.",
   summary: "Interested in finance, programming and maths.",
-  avatarUrl:
-    "https://i.pinimg.com/736x/fb/4a/9b/fb4a9bf8f08402caaaf3d416e3f55688.jpg",
+  avatarUrl: "https://avatars.githubusercontent.com/u/144552425?v=4",
   skills: [
     "HTML",
     "CSS",
