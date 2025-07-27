@@ -93,7 +93,7 @@ export const DATA = {
       logoUrl:
         "https://bookface-images.s3.amazonaws.com/small_logos/ed7adf2496c4443a8cb1ccf4a4aba4e346b8d33c.png",
       start: "January 2025",
-      end: "Present",
+      end: "June 2025",
       description:
         "Developing LinkedIn automation, onboarding system, and creating lead finder tools.",
       technologies: [
@@ -116,7 +116,7 @@ export const DATA = {
       logoUrl:
         "https://pbs.twimg.com/profile_images/1817256992517259264/Cirq4Pag_400x400.jpg",
       start: "December 2024",
-      end: "Present",
+      end: "June 2025",
       description: "Working as a Software Engineer at CardLift",
     },
     {
@@ -126,8 +126,8 @@ export const DATA = {
       title: "Software Developer Intern",
       logoUrl:
         "https://play-lh.googleusercontent.com/hXkgGiyJD_xP55IgqhuAYxxGKe5THXQe0XGf6QVi-XEo_aYWlY7aJ5jGFZCxAfa62WPL=w600-h300-pc0xffffff-pd",
-      start: "June 2024",
-      end: "December 2024",
+      start: "July 2024",
+      end: "Jan 2024",
       badges: [""],
       description: "Built and deployed the complete web application.",
       technologies: [
