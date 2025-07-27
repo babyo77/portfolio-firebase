@@ -85,7 +85,7 @@ export const DATA = {
   },
   work: [
     {
-      company: "Hire Roger",
+      company: "Hire Roger (YC S24)",
       href: "https://hireroger.com",
       badges: [""],
       location: "San Francisco Bay Area",
@@ -108,7 +108,7 @@ export const DATA = {
       ],
     },
     {
-      company: "CardLift",
+      company: "CardLift (YC S24)",
       href: "https://withcardlift.com",
       badges: [""],
       location: "Remote",
