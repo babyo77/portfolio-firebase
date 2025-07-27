@@ -127,7 +127,7 @@ export const DATA = {
       logoUrl:
         "https://play-lh.googleusercontent.com/hXkgGiyJD_xP55IgqhuAYxxGKe5THXQe0XGf6QVi-XEo_aYWlY7aJ5jGFZCxAfa62WPL=w600-h300-pc0xffffff-pd",
       start: "July 2024",
-      end: "Jan 2024",
+      end: "Jan 2025",
       badges: [""],
       description: "Built and deployed the complete web application.",
       technologies: [
