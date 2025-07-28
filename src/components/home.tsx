@@ -202,7 +202,13 @@ function Home({
                       )}
                     >
                       {project.users.endsWith(".mp4") ? (
-                        <video src={project.users} autoPlay loop muted />
+                        <video
+                          playsInline
+                          src={project.users}
+                          autoPlay
+                          loop
+                          muted
+                        />
                       ) : (
                         <OptimizedImage
                           src={project.users}
