@@ -92,11 +92,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tanmay | Profile",
     description: "Explore Tanmay's profile — projects.",
-    url: "https://tanmay.xyz/", 
+    url: "https://tanmay.xyz/",
     siteName: "Tanmay's Portfolio",
     images: [
       {
-        url: "https://tanmay.b-cdn.net/gradii-1600x900.png", 
+        url: "https://tanmay.b-cdn.net/gradii-1600x900.png",
         width: 1200,
         height: 630,
         alt: "Tanmay Profile Preview",
@@ -112,7 +112,6 @@ export const metadata: Metadata = {
     images: ["https://tanmay.b-cdn.net/gradii-1600x900.png"],
   },
 };
-
 
 export default function RootLayout({
   children,
